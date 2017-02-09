@@ -3,16 +3,16 @@ require_once('credentials.php');
 on_load();
 
 function on_load() {
-        session_start();
+	session_start();
 
-        $loggedin = session_is_logged_in();
-        if(!isset($loggedin)) {
-                session_logout_user();
-        }
+	$loggedin = session_is_logged_in();
+	if(!isset($loggedin)) {
+		session_logout_user();
+	}
 
-        if($_SESSION['last_csrf_cleanup'] + 300 < time()) {
-                session_csrf_cleanup();
-        }
+	if($_SESSION['last_csrf_cleanup'] + 300 < time()) {
+		session_csrf_cleanup();
+	}
 }
 
 function session_is_logged_in() {
