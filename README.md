@@ -9,3 +9,8 @@ To install:
 * $ cd votehaus
 * $ composer install
 * Point your web servers document root at the public folder inside of the votehaus directory
+
+# Credit
+Where credit is due:
+* The theme, AdminLTE, is written by Abdullah Almsaeed. Find it at https://github.com/almasaeed2010/AdminLTE
+  * AdminLTE includes a number of plugins, which can be found at https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html#plugins
