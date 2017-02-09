@@ -11,5 +11,4 @@ $config['twilio']['sid']        = "";
 $config['twilio']['token']      = "";
 $config['twilio']['number']     = "";
 
-$pdo = new PDO('mysql:host=' . $config['db']['host'] . ';dbname=' . $config['db']['name'] .
-                                                ';charset=utf8', $config['db']['user'], $config['db']['pass']);
+//$pdo = new PDO('mysql:host=' . $config['db']['host'] . ';dbname=' . $config['db']['name'] . ';charset=utf8', $config['db']['user'], $config['db']['pass']);
