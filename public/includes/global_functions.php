@@ -1,5 +1,5 @@
 <?php
-require_once('conf-vars.php');
+require_once('credentials.php');
 on_load();
 
 function on_load() {
