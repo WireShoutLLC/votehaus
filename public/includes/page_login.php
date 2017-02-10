@@ -11,7 +11,7 @@ global $config;
 </div>
 <div class="login-box-body">
 	<h2 class="login-box-msg" id="greeting">Sign In</h2>
-	<form name="loginbox" action="endpoints/process_login.php" method="post">
+	<form name="loginbox" id="loginbox" action="endpoints/process_login.php" method="post">
 		<div class="form-group has-feedback">
 			<input name="email" id="email" type="email" class="form-control" placeholder="Email">
 			<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -29,7 +29,7 @@ global $config;
 				<a href="#" class="btn btn-primary btn-block btn-flat">Forgot Password</a>
 			</div>
 			<div class="col-xs-4">
-				<button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+				<button class="btn btn-primary btn-block btn-flat">Sign In</button>
 			</div>
 		</div>
 	</form>

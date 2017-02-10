@@ -16,28 +16,24 @@ $(document).ready(function() {
             data        : formData,
             dataType    : 'json',
             encode      : true,
-            error: function(){
-                        document.getElementById("greeting").innerHTML = "Request timed out.";
-                }
+            error: function(){ document.getElementById("greeting").innerHTML = "Request timed out."; }
         });
 
         formsub.done(function(data) {
-                if (!data.success) {
-                    if (data.errors.name) {
-                        document.getElementById("greeting").innerHTML = data.errors.name;
-                    } else if (data.errors.captcha) {
-                        document.getElementById("greeting").innerHTML = data.errors.captcha;
-                    } else if (data.errors.req) {
-                        document.getElementById("greeting").innerHTML = data.errors.req;
-                    } else {
-                        document.getElementById("greeting").innerHTML = "Unexpected error.";
-                    }
+            if (!data.success) {
+                if (data.errors.name) {
+                    document.getElementById("greeting").innerHTML = data.errors.name;
+                } else if (data.errors.captcha) {
+                    document.getElementById("greeting").innerHTML = data.errors.captcha;
+                } else if (data.errors.req) {
+                    document.getElementById("greeting").innerHTML = data.errors.req;
                 } else {
-                	document.getElementById("greeting").innerHTML = "Success!";
-                    setTimeout(function() {
-                                        window.location.href = "/dashboard";
-                                }, 2000);
+                    document.getElementById("greeting").innerHTML = "Unexpected error.";
                 }
+            } else {
+            	document.getElementById("greeting").innerHTML = "Success!";
+                setTimeout(function() { window.location.href = "/dashboard"; }, 2000);
+            }
         });
 
         event.preventDefault();
