@@ -15,6 +15,15 @@ function on_load() {
 	}
 }
 
+function randString($length, $charset='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789') {
+	$str = '';
+	$count = strlen($charset);
+	while ($length--) {
+		$str .= $charset[mt_rand(0, $count-1)];
+	}
+	return $str;
+}
+
 function session_is_logged_in() {
 	if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
 		return true;
