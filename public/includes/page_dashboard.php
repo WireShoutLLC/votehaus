@@ -3,14 +3,12 @@
 require_once('config.php');
 global $config;
 
-require_once('page_template_login_head.php');
-require_once('page_template_login_sidebar.php');
+require_once('page_template_dash_head.php');
+require_once('page_template_dash_sidebar.php');
 
 ?>
 
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
         Page Header
@@ -22,18 +20,15 @@ require_once('page_template_login_sidebar.php');
       </ol>
     </section>
 
-    <!-- Main content -->
     <section class="content">
 
       <!-- Your Page Content Here -->
      
     </section>
-    <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
 
 <?php 
 
-require_once('page_template_login_foot.php');
+require_once('page_template_dash_foot.php');
 
 ?>
