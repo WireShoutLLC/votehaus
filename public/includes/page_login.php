@@ -10,14 +10,14 @@ global $config;
 	<a href="https://vote.haus"><b>vote</b>haus</a>
 </div>
 <div class="login-box-body">
-	<p class="login-box-msg">Sign in</p>
-	<form action="endpoints/process_login.php" method="post">
+	<h2 class="login-box-msg" id="greeting">Sign In</h2>
+	<form name="loginbox" action="endpoints/process_login.php" method="post">
 		<div class="form-group has-feedback">
-			<input type="email" class="form-control" placeholder="Email">
+			<input name="email" id="email" type="email" class="form-control" placeholder="Email">
 			<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 		</div>
 		<div class="form-group has-feedback">
-			<input type="password" class="form-control" placeholder="Password">
+			<input name="password" id="password" type="password" class="form-control" placeholder="Password">
 			<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 		</div>
 		<div class="form-group has-feedback">
