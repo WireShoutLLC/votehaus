@@ -23,6 +23,10 @@ if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
 				
 				if(password_verify($password, $passwordhash)) {
 					session_login_user($userid);
+					
+					//Get Gravatar and set variable
+					$gravatar = "https://www.gravatar.com/avatar/" . md5(strtolower(trim($email))) . "&s=160";
+					session_set_value("avatar", $gravatar);
 			
 					$data['success'] = true;
 				    $data['message'] = 'Success!';
