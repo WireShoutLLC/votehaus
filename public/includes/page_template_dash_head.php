@@ -65,6 +65,7 @@
 
                 <p>
                   <?php echo session_get_value("email"); ?>
+                  <small>Install Administrator</small>
                 </p>
               </li>
               <!-- Menu Body -->
