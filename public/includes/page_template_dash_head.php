@@ -62,26 +62,10 @@
               <!-- The user image in the menu -->
               <li class="user-header">
                 <img src="<?php echo session_get_value("avatar"); ?>" class="img-circle" alt="User Image">
-
                 <p>
                   <?php echo session_get_value("email"); ?>
                   <small>Install Administrator</small>
                 </p>
-              </li>
-              <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-                <!-- /.row -->
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
