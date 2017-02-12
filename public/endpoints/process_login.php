@@ -18,8 +18,9 @@ if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
 			$stmt->bindParam(1, $email);
 			$stmt->execute();
 			if($stmt->rowCount() == 1) {
-				$passwordhash = $stmt->fetch(PDO::FETCH_NUM)[0];
-				$userid = $stmt->fetch(PDO::FETCH_NUM)[1];
+				$row = $stmt->fetch(PDO::FETCH_NUM);
+				$passwordhash = $row[0];
+				$userid = $row[1];
 				
 				if(password_verify($password, $passwordhash)) {
 					session_login_user($userid);
