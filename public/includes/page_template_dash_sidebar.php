@@ -21,8 +21,10 @@ $elections = $stmt->fetchAll();
         	$stmt = $pdo->prepare("SELECT `name`,`stage` FROM `elections` WHERE `id`= ?");
         	$stmt->bindParam(1, $row["election"]);
         	$stmt->execute();
+        	$row = $stmt->fetch(PDO::FETCH_NUM);
         	
-        	$election_name = $stmt->fetch(PDO::FETCH_NUM)[0];
+        	$election_name = $row[0];
+        	$stage = $row[1];
         	
         	if($stage == "created")
         		$infobox = '<span class="pull-right-container"><small class="label pull-right bg-purple">new</small></span>';
