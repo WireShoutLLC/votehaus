@@ -8,7 +8,7 @@ if(session_is_logged_in()) {
 		require('includes/page_dashboard.php');
 	} else if($_GET['pg'] == "election" && $_GET['id'] == "new") {
 		require('includes/page_election_new.php');
-	} else if($_GET['pg'] == "election" && $_GET['id'] != "new") {
+	} else if($_GET['pg'] == "election" && $_GET['id'] != "new" && is_int($_GET['id'])) {
 		require('includes/page_election_edit.php');
 	} else if($_GET['pg'] == "logout") {
 		session_logout_user();
@@ -24,7 +24,7 @@ if(session_is_logged_in()) {
 		require('includes/page_login.php');
 	} else {
 		http_response_code(404);
-		die("404: Not Found.");
+		die(header("Location: /login"));
 	}
 }
 
