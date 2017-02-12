@@ -17,7 +17,7 @@ if(session_is_logged_in()) {
 		header("Location: /login");
 	} else {
 		http_response_code(404);
-		die("404: Not Found.");
+		require('includes/page_template_dash_404.php');
 	}
 } else {
 	if(!isset($_GET['pg']) || empty($_GET['pg'])) {
