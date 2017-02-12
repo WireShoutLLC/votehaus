@@ -8,7 +8,7 @@ $stmt = $pdo->prepare("SELECT `election` FROM `access` WHERE `user`= ?");
 $stmt->bindParam(1, $userid);
 $stmt->execute();
 $elections = $stmt->fetchAll();
-print_r($elections, true);
+error_log(print_r($elections, true));
 
 ?>
 
@@ -19,7 +19,7 @@ print_r($elections, true);
       <ul class="sidebar-menu">
         <li class="header">ELECTIONS</li>
         <?php foreach ($elections as $row) {
-        	print_r($row, true);
+        	error_log(print_r($row, true));
         	$stmt = $pdo->prepare("SELECT `name` FROM `elections` WHERE `id`= ?");
         	$stmt->bindParam(1, $row["election"]);
         	$stmt->execute();
