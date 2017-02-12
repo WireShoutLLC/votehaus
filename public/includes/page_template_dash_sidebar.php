@@ -24,10 +24,10 @@ $elections = $stmt->fetchAll();
         	
         	$election_name = $stmt->fetch(PDO::FETCH_NUM)[0];
         	?>
-        	<li><a href="/election?id=<?php echo $row["election"]; ?>"><i class="fa fa-users"></i> <span><?php echo $election_name; ?></span></a></li>
+        	<li<?php if($_GET['id'] == $row['election']) { ?>class="active"<?php } ?>><a href="/election?id=<?php echo $row["election"]; ?>"><i class="fa fa-users"></i> <span><?php echo $election_name; ?></span></a></li>
         	<?php 
         } ?>
-        <li><a href="/election?id=new"><i class="fa fa-pencil-square-o"></i> <span>New Election...</span></a></li>
+        <li <?php if($_GET['id'] == "new") { ?>class="active"<?php } ?>><a href="/election?id=new"><i class="fa fa-pencil-square-o"></i> <span>New Election...</span></a></li>
       </ul>
     </section>
   </aside>

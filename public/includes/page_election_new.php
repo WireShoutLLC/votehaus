@@ -12,11 +12,10 @@ require_once('page_template_dash_sidebar.php');
     <section class="content-header">
       <h1>
         New Election
-        <small>Optional description</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
+        <li><i class="fa fa-th-list"></i> Elections</li>
+        <li class="active">New</li>
       </ol>
     </section>
 
