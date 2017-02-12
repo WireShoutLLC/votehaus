@@ -7,7 +7,7 @@ $userid = session_get_user_id();
 $stmt = $pdo->prepare("SELECT `election` FROM `access` WHERE `user`= ?");
 $stmt->bindParam(1, $userid);
 $stmt->execute();
-$elections = $stm->fetchAll();
+$elections = $stmt->fetchAll();
 
 ?>
 
