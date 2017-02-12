@@ -16,8 +16,7 @@ $election_name = $stmt->fetch(PDO::FETCH_NUM)[0];
   <div class="content-wrapper">
     <section class="content-header">
       <h1>
-        Edit Election
-        <small><?php echo $election_name; ?></small>
+        <?php echo $election_name; ?>
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-th-list"></i> Elections</li>
