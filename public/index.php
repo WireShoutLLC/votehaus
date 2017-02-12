@@ -8,7 +8,7 @@ if(session_is_logged_in()) {
 		require('includes/page_dashboard.php');
 	} else if($_GET['pg'] == "election" && $_GET['id'] == "new") {
 		require('includes/page_election_new.php');
-	} else if($_GET['pg'] == "election" && $_GET['id'] != "new" && is_int($_GET['id'])) {
+	} else if($_GET['pg'] == "election" && $_GET['id'] != "new" && is_numeric($_GET['id'])) {
 		require('includes/page_election_edit.php');
 	} else if($_GET['pg'] == "logout") {
 		session_logout_user();
