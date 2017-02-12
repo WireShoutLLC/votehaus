@@ -21,17 +21,17 @@ $elections = $stmt->fetchAll();
         	$stmt = $pdo->prepare("SELECT `name`,`stage` FROM `elections` WHERE `id`= ?");
         	$stmt->bindParam(1, $row["election"]);
         	$stmt->execute();
-        	$row = $stmt->fetch(PDO::FETCH_NUM);
+        	$row2 = $stmt->fetch(PDO::FETCH_NUM);
         	
-        	$election_name = $row[0];
-        	$stage = $row[1];
+        	$election_name = $row2[0];
+        	$stage = $row2[1];
         	
         	if($stage == "created")
-        		$infobox = '<span class="pull-right-container"><small class="label pull-right bg-purple">new</small></span>';
+        		$infobox = '<span class="pull-right-container"><small class="label pull-right bg-yellow">new</small></span>';
         	else if($stage == "polling")
-        		$infobox = '<span class="pull-right-container"><small class="label pull-right bg-green">polling</small></span>';
+        		$infobox = '<span class="pull-right-container"><small class="label pull-right bg-red">running</small></span>';
         	else if($stage == "done")
-        		$infobox = '<span class="pull-right-container"><small class="label pull-right bg-red">done</small></span>';
+        		$infobox = '<span class="pull-right-container"><small class="label pull-right bg-green">done</small></span>';
         	else if($stage == "archived")
         		$infobox = '<span class="pull-right-container"><small class="label pull-right bg-gray">archived</small></span>';
         	else
