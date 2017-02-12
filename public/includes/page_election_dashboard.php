@@ -16,12 +16,13 @@ $election_name = $stmt->fetch(PDO::FETCH_NUM)[0];
   <div class="content-wrapper">
     <section class="content-header">
       <h1>
-      	<?php echo $election_name; ?>
+        Edit Election
+        <small><?php echo $election_name; ?></small>
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-th-list"></i> Elections</li>
         <li><?php echo $election_name; ?></li>
-        <li class="active">Edit</li>
+        <li class="active">Dashboard</li>
       </ol>
     </section>
 
