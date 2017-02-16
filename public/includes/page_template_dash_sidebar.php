@@ -41,7 +41,7 @@ $elections = $stmt->fetchAll();
         	<li <?php if($_GET['id'] == $row['election']) { ?>class="active"<?php } ?>><a href="/election?id=<?php echo $row["election"]; ?>&subid=dashboard"><i class="fa fa-users"></i> <span><?php echo $election_name; ?></span><?php echo $infobox; ?></a></li>
         	<?php 
         } ?>
-        <li><a data-toggle="modal" data-target="#myModal><i class="fa fa-pencil-square-o"></i> <span>New Election...</span></a></li>
+        <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil-square-o"></i> <span>New Election...</span></a></li>
       </ul>
     </section>
   </aside>
