@@ -52,8 +52,10 @@ $elections = $stmt->fetchAll();
 					<h4 class="modal-title" id="createElectionLabel">Create Election</h4>
 				</div>
 				<div class="modal-body">
-					
-						<input type="text" placeholder="Election Name" />
+					<div class="form-group">
+						<label>Election Name</label>
+						<input type="text" class="form-control" placeholder="The Most Democratic Election Ever" />
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
