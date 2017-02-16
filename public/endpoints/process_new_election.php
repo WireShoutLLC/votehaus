@@ -13,6 +13,12 @@ if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
 		$stmt = $pdo->prepare("INSERT INTO `elections` (`name`) VALUES (?)");
 		$stmt->bindParam(1, $election);
 		$stmt->execute();
+		$election_id = $pdo->lastInsertId();
+		$uid = session_get_user_id();
+		$stmt = $pdo->prepare("INSERT INTO `access` (`election`, `user`, `level`) VALUES (?, ?, 255)");
+		$stmt->bindParam(1, $election_id);
+		$stmt->bindParam(1, $uid);
+		$stmt->execute();
 		
 		$data['success'] = true;
 		$data['message'] = 'Success!';
