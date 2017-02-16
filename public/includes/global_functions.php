@@ -22,6 +22,8 @@ function get_all_current_user_elections() {
 }
 
 function get_all_users_elections($uid) {
+	global $pdo;
+	
 	$stmt = $pdo->prepare("SELECT `election` FROM `access` WHERE `user`= ?");
 	$stmt->bindParam(1, $uid);
 	$stmt->execute();
