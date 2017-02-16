@@ -12,8 +12,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!-- AdminLTE App -->
 		<script src="dist/js/app.min.js"></script>
-		<!-- Edit-In-Place -->
-		<link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+		<!-- X-Editable -->
 		<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 		<!-- New Election Sidebar Element -->
 		<script src="dist/js/newElection.js"></script>
