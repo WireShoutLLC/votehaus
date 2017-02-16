@@ -1,10 +1,12 @@
 $(document).ready(function() {
     $('#newelectionbox').submit(function(event) {
+        document.getElementById("submitbtn").disabled = true;
+        document.getElementById("submitbtn").innerHTML = "Creating...";
+        
         var formData = {
             'election'             : $('input[name=election]').val(),
             '_csrf'                : $('input[name=_csrf]').val()
         };
-
 
         var formsub = $.ajax({
             type        : 'POST',
@@ -13,7 +15,16 @@ $(document).ready(function() {
             dataType    : 'json',
             encode      : true
         });
-
+        
+        formsub.done(function(data) {
+            if (!data.success) {
+                document.getElementById("submitbtn").disabled = false;
+                document.getElementById("submitbtn").innerHTML = "Error";
+            } else {
+            	$('#newelectionbox').modal('hide');
+            	location.reload();
+            }
+        });
         event.preventDefault();
     });
 });
