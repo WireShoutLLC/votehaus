@@ -3,7 +3,7 @@
 require_once('config.php');
 global $config;
 
-$elections = get_all_current_user_elections();
+$elections = get_current_user_all_elections();
 
 ?>
 <aside class="main-sidebar">
