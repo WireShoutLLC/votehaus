@@ -46,7 +46,7 @@ $elections = $stmt->fetchAll();
 <div class="modal fade" id="createElection" tabindex="-1" role="dialog" aria-labelledby="createElectionLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
-			<form>
+			<form name="newelectionbox" id="newelectionbox" action="endpoints/process_new_election.php" method="post">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title" id="createElectionLabel">Create Election</h4>
@@ -54,7 +54,8 @@ $elections = $stmt->fetchAll();
 				<div class="modal-body">
 					<div class="form-group">
 						<label>Election Name</label>
-						<input type="text" class="form-control" placeholder="The Most Democratic Election Ever" />
+						<?php csrf_render_html(); ?>
+						<input type="text" class="form-control" placeholder="The Most Democratic Election Ever" name="election" />
 					</div>
 				</div>
 				<div class="modal-footer">
