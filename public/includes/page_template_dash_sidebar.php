@@ -3,11 +3,7 @@
 require_once('config.php');
 global $config;
 
-$userid = session_get_user_id();
-$stmt = $pdo->prepare("SELECT `election` FROM `access` WHERE `user`= ?");
-$stmt->bindParam(1, $userid);
-$stmt->execute();
-$elections = $stmt->fetchAll();
+$elections = get_all_current_user_elections();
 
 ?>
 <aside class="main-sidebar">

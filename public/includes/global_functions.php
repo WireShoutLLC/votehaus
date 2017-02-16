@@ -15,6 +15,21 @@ function on_load() {
 	}
 }
 
+//votehaus Functions
+function get_all_current_user_elections() {
+	$uid = session_get_user_id();
+	return get_all_users_elections($uid);
+}
+
+function get_all_users_elections($uid) {
+	$stmt = $pdo->prepare("SELECT `election` FROM `access` WHERE `user`= ?");
+	$stmt->bindParam(1, $uid);
+	$stmt->execute();
+	$elections = $stmt->fetchAll();
+	return $elections;
+}
+
+//Session Functions
 function randString($length, $charset='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789') {
 	$str = '';
 	$count = strlen($charset);
