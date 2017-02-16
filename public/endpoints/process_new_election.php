@@ -17,7 +17,7 @@ if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
 		$uid = session_get_user_id();
 		$stmt = $pdo->prepare("INSERT INTO `access` (`election`, `user`, `level`) VALUES (?, ?, 255)");
 		$stmt->bindParam(1, $election_id);
-		$stmt->bindParam(1, $uid);
+		$stmt->bindParam(2, $uid);
 		$stmt->execute();
 		
 		$data['success'] = true;
