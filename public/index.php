@@ -6,10 +6,8 @@ if(session_is_logged_in()) {
 		die(header("Location: /dashboard"));
 	} else if($_GET['pg'] == "dashboard") {
 		require('includes/page_dashboard.php');
-	} else if($_GET['pg'] == "election" && is_numeric($_GET['id']) && $_GET['subid'] == "dashboard") {
+	} else if($_GET['pg'] == "election" && is_numeric($_GET['id'])) {
 		require('includes/page_election_dashboard.php');
-	} else if($_GET['pg'] == "election" && is_numeric($_GET['id']) && $_GET['subid'] == "edit") {
-		require('includes/page_election_edit.php');
 	} else if($_GET['pg'] == "logout") {
 		session_logout_user();
 		header("Location: /login");
