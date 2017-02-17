@@ -3,7 +3,7 @@
 require_once('config.php');
 global $config;
 
-$elections = get_current_user_all_elections(false);
+$elections = get_current_user_all_elections();
 
 ?>
 <aside class="main-sidebar">
@@ -11,7 +11,7 @@ $elections = get_current_user_all_elections(false);
 		<ul class="sidebar-menu">
 			<li class="header">ELECTIONS</li>
 	        <?php foreach ($elections as $row) {
-	        	$stmt = $pdo->prepare("SELECT `name`,`stage` FROM `elections` WHERE `id`= ?");
+	        	$stmt = $pdo->prepare("SELECT `name`,`stage` FROM `elections` WHERE `id`= ? AND `stage` != 'archived'");
 	        	$stmt->bindParam(1, $row["election"]);
 	        	$stmt->execute();
 	        	$row2 = $stmt->fetch(PDO::FETCH_NUM);
@@ -25,8 +25,6 @@ $elections = get_current_user_all_elections(false);
 	        		$infobox = '<span class="pull-right-container"><small class="label pull-right bg-red">running</small></span>';
 	        	else if($stage == "done")
 	        		$infobox = '<span class="pull-right-container"><small class="label pull-right bg-green">done</small></span>';
-	        	else if($stage == "archived")
-	        		$infobox = '<span class="pull-right-container"><small class="label pull-right bg-gray">archived</small></span>';
 	        	else
 	        		$infobox = '';
 	        	

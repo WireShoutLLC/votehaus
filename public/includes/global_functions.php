@@ -16,19 +16,15 @@ function on_load() {
 }
 
 //votehaus Functions
-function get_current_user_all_elections($include_archived = true) {
+function get_current_user_all_elections() {
 	$uid = session_get_user_id();
-	return get_users_all_elections($uid, $include_archived);
+	return get_users_all_elections($uid);
 }
 
-function get_users_all_elections($uid, $include_archived = true) {
+function get_users_all_elections($uid) {
 	global $pdo;
 	
-	if($include_archived) {
-		$stmt = $pdo->prepare("SELECT `election` FROM `access` WHERE `user`= ?");
-	} else {
-		$stmt = $pdo->prepare("SELECT `election` FROM `access` WHERE `user`= ? AND `stage` != 'archived'");
-	}
+	$stmt = $pdo->prepare("SELECT `election` FROM `access` WHERE `user`= ?");
 	$stmt->bindParam(1, $uid);
 	$stmt->execute();
 	$elections = $stmt->fetchAll();
