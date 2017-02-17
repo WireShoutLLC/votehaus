@@ -15,6 +15,6 @@
 		<!-- X-Editable -->
 		<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 		<!-- New Election Sidebar Element -->
-		<script src="dist/js/newElection.js"></script>
+		<script src="dist/js/dashboard.js"></script>
 	</body>
 </html>
