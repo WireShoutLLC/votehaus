@@ -11,7 +11,7 @@ $elections = get_current_user_all_elections();
 		<ul class="sidebar-menu">
 			<li class="header">ELECTIONS</li>
 	        <?php foreach ($elections as $row) {
-	        	$stmt = $pdo->prepare("SELECT `name`,`stage` FROM `elections` WHERE `id`= ? AND `stage` != 'archived'");
+	        	$stmt = $pdo->prepare("SELECT `name`,`stage` FROM `elections` WHERE `id`= ?");
 	        	$stmt->bindParam(1, $row["election"]);
 	        	$stmt->execute();
 	        	$row2 = $stmt->fetch(PDO::FETCH_NUM);
@@ -28,9 +28,11 @@ $elections = get_current_user_all_elections();
 	        	else
 	        		$infobox = '';
 	        	
+	        	if($stage != "archived") {
 	        	?>
         	<li <?php if($_GET['id'] == $row['election']) { ?>class="active"<?php } ?>><a href="/election?id=<?php echo $row["election"]; ?>"><i class="fa fa-users"></i> <span><?php echo $election_name; ?></span><?php echo $infobox; ?></a></li>
 	        	<?php 
+	        	}
 	        } ?>
         	<li><a href="#" data-toggle="modal" data-target="#createElection"><i class="fa fa-pencil-square-o"></i> <span>New Election...</span></a></li>
       	</ul>
