@@ -15,9 +15,10 @@ $election_name = $stmt->fetch(PDO::FETCH_NUM)[0];
 
   <div class="content-wrapper">
     <section class="content-header">
-      <h1 id="election_name" data-type="text" data-url="/endpoints/process_election_modify.php" data-pk="<?php echo $_GET['id']; ?>" >
+      <h1 id="election_name" data-type="text" data-url="/endpoints/process_election_modify.php" data-pk="<?php echo $_GET['id']; ?>">
         <?php echo $election_name; ?>
       </h1>
+      <script type="text/javascript">$(document).ready(function() { $('#election_name').editable({ params: function(params) { params.csrf = "<?php echo session_csrf_add(); ?>"; return params; } }); });</script>
       <ol class="breadcrumb">
         <li><i class="fa fa-th-list"></i> Elections</li>
         <li><?php echo $election_name; ?></li>
