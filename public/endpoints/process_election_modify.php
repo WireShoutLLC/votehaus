@@ -6,18 +6,8 @@ $errors	= array();
 $data	= array();
 
 if(isset($_POST['csrf']) && session_csrf_check($_POST['csrf'])) {
-	if(isset($_POST['election']) && !empty($_POST['election'])) {
-		$election = $_POST['election'];
-		
-		$stmt = $pdo->prepare("INSERT INTO `elections` (`name`) VALUES (?)");
-		$stmt->bindParam(1, $election);
-		$stmt->execute();
-		$election_id = $pdo->lastInsertId();
-		$uid = session_get_user_id();
-		$stmt = $pdo->prepare("INSERT INTO `access` (`election`, `user`, `level`) VALUES (?, ?, 255)");
-		$stmt->bindParam(1, $election_id);
-		$stmt->bindParam(2, $uid);
-		$stmt->execute();
+	if((isset($_POST['name']) && !empty($_POST['name'])) && (isset($_POST['pk']) && !empty($_POST['pk'])) && (isset($_POST['value']) && !empty($_POST['value']))) {
+		//Will validate in a bit
 		
 		$data['success'] = true;
 		$data['message'] = 'Success!';
