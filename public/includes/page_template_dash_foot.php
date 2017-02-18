@@ -6,8 +6,6 @@
 			</footer>
 		</div>
 		
-		<!-- jQuery 2.2.3 -->
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 		<!-- Bootstrap 3.3.6 -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!-- AdminLTE App -->
