@@ -24,7 +24,7 @@ $election_name = $stmt->fetch(PDO::FETCH_NUM)[0];
         <li class="active">Dashboard</li>
       </ol>
     </section>
-
+	<script>$(document).ready(function() { $('#election_name').editable({ params: function(params) { params.csrf = "<?php echo session_csrf_add(); ?>" return params; }});});</script>
     <section class="content">
       <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">

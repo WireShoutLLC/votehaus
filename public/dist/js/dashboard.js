@@ -1,8 +1,6 @@
 $.fn.editable.defaults.mode = 'inline';
 
 $(document).ready(function() {
-	$('#election_name').editable();
-	
     $('#newelectionbox').submit(function(event) {
         document.getElementById("submitbtn").disabled = true;
         document.getElementById("submitbtn").innerHTML = "Creating...";
