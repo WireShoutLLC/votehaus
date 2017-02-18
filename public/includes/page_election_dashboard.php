@@ -70,27 +70,6 @@ $election_name = $stmt->fetch(PDO::FETCH_NUM)[0];
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="box box-widget widget-user-2">
-            <div class="widget-user-header bg-yellow">
-              <div class="widget-user-image">
-                <img class="img-circle" src="../dist/img/user7-128x128.jpg" alt="User Avatar">
-              </div>
-              <h3 class="widget-user-username">Election Board</h3>
-              <h5 class="widget-user-desc">Who is overseeing this election?</h5>
-            </div>
-            <div class="box-footer no-padding">
-              <ul class="nav nav-stacked">
-                <li>Joyce Horton</li>
-                <li>Darnell Baldwin</li>
-                <li>Valerie Logan</li>
-                <li>Carolyn Kelley</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
   </div>
 
