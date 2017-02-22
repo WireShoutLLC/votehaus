@@ -14,3 +14,4 @@ To install:
 Where credit is due:
 * The theme, AdminLTE, is written by Abdullah Almsaeed. Find it at https://github.com/almasaeed2010/AdminLTE
   * AdminLTE includes a number of plugins, which can be found at https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html#plugins
+* The sortable table system, Storable, is written by Lebedev Konstantin. Find it at https://github.com/RubaXa/Sortable
