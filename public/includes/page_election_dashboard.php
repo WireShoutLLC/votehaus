@@ -27,45 +27,36 @@ $election_name = $stmt->fetch(PDO::FETCH_NUM)[0];
 	<script>$(document).ready(function() { $('#election_name').editable({ params: function(params) { params.csrf = "<?php echo session_csrf_add(); ?>"; return params; }});});</script>
     <section class="content">
       <div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="fa fa-envelope-o"></i></span>
-            <div class="info-box-content">
-              <span class="info-box-text">Messages</span>
-              <span class="info-box-number">0</span>
+        <div class="col-lg-6 col-xs-12">
+          <!-- Questions -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Ballot Questions</h3>
+            </div>
+            <div class="box-body">
+
             </div>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box bg-green">
-            <span class="info-box-icon"><i class="fa fa-thumbs-o-up"></i></span>
-            <div class="info-box-content">
-              <span class="info-box-text">Votes Collected</span>
-              <span class="info-box-number">0</span>
-              <div class="progress">
-                <div class="progress-bar" style="width: 0%"></div>
-              </div>
-                  <span class="progress-description">
-                    0 out of 0 votes have been cast
-                  </span>
+        <div class="col-lg-3 col-md-6 col-xs-12">
+          <!-- Voters -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Voter Import</h3>
+            </div>
+            <div class="box-body">
+
             </div>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="fa fa-files-o"></i></span>
-            <div class="info-box-content">
-              <span class="info-box-text">Uploads</span>
-              <span class="info-box-number">0</span>
+        <div class="col-lg-3 col-md-6 col-xs-12">
+          <!-- Committee -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Election Committee</h3>
             </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-star-o"></i></span>
-            <div class="info-box-content">
-              <span class="info-box-text">Likes</span>
-              <span class="info-box-number">0</span>
+            <div class="box-body">
+
             </div>
           </div>
         </div>
