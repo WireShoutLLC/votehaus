@@ -12,7 +12,7 @@ To install:
 
 # Credit
 Where credit is due:
-* The theme, AdminLTE, is written by Abdullah Almsaeed. Find it at https://github.com/almasaeed2010/AdminLTE
+* The theme, AdminLTE, is written by Abdullah Almsaeed, and based on Twitter's Bootstrap 3. Find it at https://github.com/almasaeed2010/AdminLTE
   * AdminLTE includes a number of plugins, which can be found at https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html#plugins
 * The sortable table system, Stortable, is written by Lebedev Konstantin. Find it at https://github.com/RubaXa/Sortable
 * The election question editor/generator, JSON Editor, is written by Jeremy Dorn. Find it at https://github.com/jdorn/json-editor
