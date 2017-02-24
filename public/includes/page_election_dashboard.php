@@ -34,7 +34,7 @@ $election_name = $stmt->fetch(PDO::FETCH_NUM)[0];
               <h3 class="box-title">Ballot Questions</h3>
             </div>
             <div class="box-body">
-
+              <?php $questions = get_questions_for_election($_GET['id']); ?>
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@ $election_name = $stmt->fetch(PDO::FETCH_NUM)[0];
               <h3 class="box-title">Voter Import</h3>
             </div>
             <div class="box-body">
-
+              <?php $voters = get_voters_for_election($_GET['id']); ?>
             </div>
           </div>
         </div>

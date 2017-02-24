@@ -31,6 +31,26 @@ function get_users_all_elections($uid) {
 	return $elections;
 }
 
+function get_questions_for_election($id) {
+        global $pdo;
+
+        $stmt = $pdo->prepare("SELECT `id`, `order`, `data` FROM `questions` WHERE `election`= ?");
+        $stmt->bindParam(1, $id);
+        $stmt->execute();
+        $questions = $stmt->fetchAll();
+        return $questions;
+}
+
+function get_voters_for_election($id) {
+        global $pdo;
+
+        $stmt = $pdo->prepare("SELECT `id`, `email` FROM `voters` WHERE `election`= ?");
+        $stmt->bindParam(1, $id);
+        $stmt->execute();
+        $voters = $stmt->fetchAll();
+        return $voters;
+}
+
 //Session Functions
 function randString($length, $charset='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789') {
 	$str = '';
