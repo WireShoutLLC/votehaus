@@ -45,6 +45,12 @@ $election_name = $stmt->fetch(PDO::FETCH_NUM)[0];
               <h3 class="box-title">Voter Import</h3>
             </div>
             <div class="box-body">
+              <form>
+                <div class="form-group">
+                  <label for="voterFile">Upload Voter CSV</label>
+                  <input type="file" id="voterFile">
+                </div>
+              </form>
               <?php $voters = get_voters_for_election($_GET['id']); ?>
             </div>
           </div>
