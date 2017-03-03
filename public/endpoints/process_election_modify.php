@@ -6,11 +6,15 @@ $errors	= array();
 $data	= array();
 
 if(isset($_POST['csrf']) && session_csrf_check($_POST['csrf'])) {
-	if((isset($_POST['name']) && !empty($_POST['name'])) && (isset($_POST['pk']) && !empty($_POST['pk'])) && (isset($_POST['value']) && !empty($_POST['value']))) {
-		//Will validate in a bit
-		
-		$data['success'] = true;
-		$data['message'] = 'Success!';
+	if((isset($_POST['name']) && !empty($_POST['name'])) && (isset($_POST['pk']) && !empty($_POST['pk']) && is_numeric($_POST['pk'])) && (isset($_POST['value']) && !empty($_POST['value']))) {
+		if($_POST['name'] == "election_name") {
+			
+			
+			$data['success'] = true;
+			$data['message'] = 'Success!';
+		} else {
+			$errors['name'] = 'Invalid name.';	
+		}
 	} else {
 		$errors['name'] = 'Invalid name.';
 	}

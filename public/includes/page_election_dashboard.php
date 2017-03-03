@@ -67,6 +67,36 @@ $election_name = $stmt->fetch(PDO::FETCH_NUM)[0];
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-lg-3 col-xs-12">
+        </div>
+        <div class="col-lg-9 col-cs-12">
+          <ul class="timeline timeline-inverse">
+            <li class="time-label">
+              <span class="bg-red">
+                10 Feb. 2014
+              </span>
+            </li>
+            <li>
+              <i class="fa fa-envelope bg-blue"></i>
+
+              <div class="timeline-item">
+                <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
+
+                <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+
+                <div class="timeline-body">
+                  Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+                </div>
+                <div class="timeline-footer">
+                  <a class="btn btn-primary btn-xs">Read more</a>
+                  <a class="btn btn-danger btn-xs">Delete</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </section>
   </div>
 

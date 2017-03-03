@@ -31,6 +31,18 @@ function get_users_all_elections($uid) {
 	return $elections;
 }
 
+function get_user_election_access($uid, $eid) {
+        global $pdo;
+
+        $stmt = $pdo->prepare("SELECT `level` FROM `access` WHERE `user`= ? AND `election`= ?");
+        $stmt->bindParam(1, $uid);
+	$stmt->bindParam(2, $eid);
+        $stmt->execute();
+        $elections = $stmt->fetchAll();
+        //TODO
+        return $elections;
+}
+
 function get_questions_for_election($id) {
         global $pdo;
 
