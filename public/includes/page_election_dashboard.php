@@ -68,9 +68,7 @@ $election_name = $stmt->fetch(PDO::FETCH_NUM)[0];
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-3 col-xs-12">
-        </div>
-        <div class="col-lg-9 col-cs-12">
+        <div class="col-xs-12">
           <ul class="timeline timeline-inverse">
             <li class="time-label">
               <span class="bg-red">
