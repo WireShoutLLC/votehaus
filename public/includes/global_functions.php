@@ -67,8 +67,18 @@ function get_voters_for_election($id) {
         return $voters;
 }
 
+function log_auditable_action($user, $action, $details = NULL) {
+	global $pdo;
+
+        $stmt = $pdo->prepare("INSERT INTO `audit` (`user`, `action`, `details`) VALUES (?, ?, ?)");
+        $stmt->bindParam(1, $user);
+	$stmt->bindParam(2, $action);
+	$stmt->bindParam(3, $details);
+        $stmt->execute();
+}
+
 //Session Functions
-function randString($length, $charset='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789') {
+function randString($length, $charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789') {
 	$str = '';
 	$count = strlen($charset);
 	while ($length--) {
