@@ -19,6 +19,7 @@ if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
 		$stmt->bindParam(1, $election_id);
 		$stmt->bindParam(2, $uid);
 		$stmt->execute();
+		log_auditable_action($uid, "create_election", $election_id);
 		
 		$data['success'] = true;
 		$data['message'] = 'Success!';
