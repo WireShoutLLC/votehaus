@@ -38,9 +38,13 @@ function get_user_election_access($uid, $eid) {
         $stmt->bindParam(1, $uid);
 	$stmt->bindParam(2, $eid);
         $stmt->execute();
-        $elections = $stmt->fetchAll();
-        //TODO
-        return $elections;
+        $access = $stmt->fetchAll();
+        if($stmt->rowCount() == 1) {
+		$level = $access['level'];
+		return $level; 
+	} else {
+		return false;
+	}
 }
 
 function get_questions_for_election($id) {
