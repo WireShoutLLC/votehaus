@@ -60,9 +60,26 @@ $election_name = $stmt->fetch(PDO::FETCH_NUM)[0];
           <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Election Committee</h3>
+		    
+              <div class="box-tools">
+                <ul class="pagination pagination-sm no-margin pull-right">
+                  <li><a href="#">+</a></li>
+                </ul>
+              </div>
             </div>
             <div class="box-body">
-
+              <table class="table">
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Action</th>
+                </tr>
+                <tr>
+                  <td>John Doe</td>
+                  <td>jdoe@example.com</td>
+                  <td><button type="button" class="btn btn-block btn-danger btn-xs">-</button></td>
+                </tr>
+              </table>
             </div>
           </div>
         </div>
