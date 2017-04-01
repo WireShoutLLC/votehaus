@@ -79,7 +79,7 @@ $admins = get_election_admins($_GET['id']);
                         $email = get_user_email($admin['user']);?>
                 <tr>
                   <td><?php echo $email; ?></td>
-                  <td><button type="button" class="btn btn-block btn-danger btn-xs"><i class="fa fa-minus-square"></i></button></td>
+                  <td><a href="#" data-toggle="modal" data-target="#addElectionAdmin"><button type="button" class="btn btn-block btn-danger btn-xs"><i class="fa fa-minus-square"></i></button></a></td>
                 </tr>
 		<?php } ?>
               </table>
@@ -117,6 +117,30 @@ $admins = get_election_admins($_GET['id']);
       </div>
     </section>
   </div>
+
+<div class="modal fade" id="addElectionAdmin" tabindex="-1" role="dialog" aria-labelledby="addElectionAdminLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<form name="newadminbox" id="newadminbox" action="endpoints/process_new_election_admin.php" method="post">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="addElectionAdminLabel">Create Election</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label>Admin Email Address</label>
+						<?php csrf_render_html(); ?>
+						<input type="text" class="form-control" placeholder="richard.nixon@not.crook" name="email" />
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary" id="submitbtn">Create</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 
 <?php 
 
