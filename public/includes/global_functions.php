@@ -53,10 +53,10 @@ function get_user_email($uid) {
         $stmt = $pdo->prepare("SELECT `email` FROM `users` WHERE `id`= ?");
         $stmt->bindParam(1, $uid);
         $stmt->execute();
-        $access = $stmt->fetchAll();
+        $result = $stmt->fetchAll();
         if($stmt->rowCount() == 1) {
-		$level = $access['email'];
-		return $level; 
+		$email = $result['email'];
+		return $email;
 	} else {
 		return false;
 	}
