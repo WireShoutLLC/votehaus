@@ -70,12 +70,10 @@ $election_name = $stmt->fetch(PDO::FETCH_NUM)[0];
             <div class="box-body">
               <table class="table">
                 <tr>
-                  <th>Name</th>
                   <th>Email</th>
                   <th>Action</th>
                 </tr>
                 <tr>
-                  <td>John Doe</td>
                   <td>jdoe@example.com</td>
                   <td><button type="button" class="btn btn-block btn-danger btn-xs">-</button></td>
                 </tr>
