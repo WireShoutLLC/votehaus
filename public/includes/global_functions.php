@@ -46,6 +46,15 @@ function get_user_election_access($uid, $eid) {
 		return false;
 	}
 }
+function get_election_admins($eid) {
+        global $pdo;
+
+        $stmt = $pdo->prepare("SELECT `user`, `level` FROM `access` WHERE `election` = ? AND `level` >= 254");
+	$stmt->bindParam(1, $eid);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+}
 
 function get_questions_for_election($id) {
         global $pdo;
