@@ -11,6 +11,8 @@ $stmt->bindParam(1, $_GET['id']);
 $stmt->execute();
 $election_name = $stmt->fetch(PDO::FETCH_NUM)[0];
 
+$admins = get_election_admins($_GET['id']);
+
 ?>
 
   <div class="content-wrapper">
@@ -71,12 +73,14 @@ $election_name = $stmt->fetch(PDO::FETCH_NUM)[0];
               <table class="table">
                 <tr>
                   <th>Email</th>
-                  <th>Action</th>
+                  <th style="width: 40px">Action</th>
                 </tr>
+		<?php foreach($admins as $admin) { ?>
                 <tr>
-                  <td>jdoe@example.com</td>
-                  <td><button type="button" class="btn btn-block btn-danger btn-xs">-</button></td>
+                  <td><?php echo get_user_email($admin['user']); ?></td>
+                  <td><button type="button" class="btn btn-block btn-danger btn-xs"><i class="fa fa-minus-square"></i></button></td>
                 </tr>
+		<?php } ?>
               </table>
             </div>
           </div>
