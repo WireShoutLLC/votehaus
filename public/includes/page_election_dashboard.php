@@ -27,7 +27,7 @@ $election_name = $stmt->fetch(PDO::FETCH_NUM)[0];
 	<script>$(document).ready(function() { $('#election_name').editable({ params: function(params) { params.csrf = "<?php echo session_csrf_add(); ?>"; return params; }});});</script>
     <section class="content">
       <div class="row">
-        <div class="col-lg-6 col-xs-12">
+        <div class="col-lg-5 col-xs-12">
           <!-- Questions -->
           <div class="box box-primary">
             <div class="box-header with-border">
@@ -55,7 +55,7 @@ $election_name = $stmt->fetch(PDO::FETCH_NUM)[0];
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-xs-12">
+        <div class="col-lg-4 col-md-6 col-xs-12">
           <!-- Committee -->
           <div class="box box-primary">
             <div class="box-header with-border">
