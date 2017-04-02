@@ -78,7 +78,7 @@ $admins = get_election_admins($_GET['id']);
 		<?php foreach($admins as $admin) { 
                         $email = get_user_email($admin['user']);?>
                 <tr>
-                  <td><?php echo $email; ?></td>
+                  <td><?php echo $admin['user']; ?></td>
                   <td><button type="button" class="btn btn-block btn-danger btn-xs"><i class="fa fa-minus-square"></i></button></td>
                 </tr>
 		<?php } ?>
