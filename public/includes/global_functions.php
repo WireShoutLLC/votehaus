@@ -56,7 +56,7 @@ function get_user_email($uid) {
         $result = $stmt->fetchAll();
 	echo print_r($result, true);
         if($stmt->rowCount() == 1) {
-		$email = $result['email'];
+		$email = $result[0]['email'];
 		return $email;
 	} else {
 		return false;
