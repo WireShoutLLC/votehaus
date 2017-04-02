@@ -61,7 +61,7 @@ $admins = get_election_admins($_GET['id']);
           <!-- Committee -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Election Committee</h3>
+              <h3 class="box-title">Election Administrators</h3>
 		    
               <div class="box-tools">
                 <ul class="pagination pagination-sm no-margin pull-right">
@@ -96,7 +96,7 @@ $admins = get_election_admins($_GET['id']);
 			<form name="newadminbox" id="newadminbox" action="endpoints/process_new_election_admin.php" method="post">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="addElectionAdminLabel">Create Election</h4>
+					<h4 class="modal-title" id="addElectionAdminLabel">Add Election Administrator</h4>
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
@@ -107,7 +107,7 @@ $admins = get_election_admins($_GET['id']);
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="submit" class="btn btn-primary" id="submitbtn">Create</button>
+					<button type="submit" class="btn btn-primary" id="submitbtn">Add</button>
 				</div>
 			</form>
 		</div>
