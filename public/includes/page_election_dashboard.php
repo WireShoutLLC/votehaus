@@ -65,7 +65,7 @@ $admins = get_election_admins($_GET['id']);
 		    
               <div class="box-tools">
                 <ul class="pagination pagination-sm no-margin pull-right">
-                  <li><a href="#">+</a></li>
+                  <li><a href="#" data-toggle="modal" data-target="#addElectionAdmin"><i class="fa fa-plus-circle"></i></a></li>
                 </ul>
               </div>
             </div>
@@ -79,40 +79,12 @@ $admins = get_election_admins($_GET['id']);
                         $email = get_user_email($admin['user']);?>
                 <tr>
                   <td><?php echo $email; ?></td>
-                  <td><a href="#" data-toggle="modal" data-target="#addElectionAdmin"><button type="button" class="btn btn-block btn-danger btn-xs"><i class="fa fa-minus-square"></i></button></a></td>
+                  <td><button type="button" class="btn btn-block btn-danger btn-xs"><i class="fa fa-minus-square"></i></button></td>
                 </tr>
 		<?php } ?>
               </table>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <ul class="timeline timeline-inverse">
-            <li class="time-label">
-              <span class="bg-red">
-                10 Feb. 2014
-              </span>
-            </li>
-            <li>
-              <i class="fa fa-envelope bg-blue"></i>
-
-              <div class="timeline-item">
-                <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
-
-                <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
-
-                <div class="timeline-body">
-                  Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                </div>
-                <div class="timeline-footer">
-                  <a class="btn btn-primary btn-xs">Read more</a>
-                  <a class="btn btn-danger btn-xs">Delete</a>
-                </div>
-              </div>
-            </li>
-          </ul>
         </div>
       </div>
     </section>
