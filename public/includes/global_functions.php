@@ -54,7 +54,6 @@ function get_user_email($uid) {
         $stmt->bindParam(1, $uid);
         $stmt->execute();
         $result = $stmt->fetchAll();
-	echo print_r($result, true);
         if($stmt->rowCount() == 1) {
 		$email = $result[0]['email'];
 		return $email;
