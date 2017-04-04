@@ -5,7 +5,7 @@ $errors	= array();
 $data	= array();
 
 if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
-	if(isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['election']) && !empty($_POST['election']) && is_numeric($_POST['election']) ) {
+	if(isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['election']) && !empty($_POST['election'])) {
 		global $pdo;
 		
 		$email = $_POST['email'];
