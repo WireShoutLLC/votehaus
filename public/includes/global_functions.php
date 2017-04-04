@@ -62,6 +62,21 @@ function get_user_email($uid) {
 	}
 }
 
+function get_user_id($email) {
+        global $pdo;
+
+        $stmt = $pdo->prepare("SELECT `id` FROM `users` WHERE `email`= ?");
+        $stmt->bindParam(1, $email);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        if($stmt->rowCount() == 1) {
+		$id = $result[0]['id'];
+		return $id;
+	} else {
+		return false;
+	}
+}
+
 function get_election_admins($eid) {
         global $pdo;
 
