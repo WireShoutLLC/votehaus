@@ -107,7 +107,7 @@ $admins = get_election_admins($_GET['id']);
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="submit" class="btn btn-primary" id="submitbtn">Add</button>
+					<button type="submit" class="btn btn-primary" id="submitbtn_newadmin">Add</button>
 				</div>
 			</form>
 		</div>
