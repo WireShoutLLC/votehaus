@@ -35,6 +35,7 @@ $(document).ready(function() {
         document.getElementById("submitbtn_newadmin").innerHTML = "Adding...";
         
         var formData = {
+            'election'             : $('input[name=election]').val(),
             'email'                : $('input[name=email]').val(),
             '_csrf'                : $('input[name=_csrf]').val()
         };
