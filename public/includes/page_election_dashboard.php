@@ -102,7 +102,7 @@ $admins = get_election_admins($_GET['id']);
 					<div class="form-group">
 						<label>Admin Email Address</label>
 						<?php csrf_render_html(); ?>
-						<input type="hidden" name="election" value="<?php echo $_GET['id']; ?>" />
+						<input type="hidden" name="election_id_newadmin" value="<?php echo $_GET['id']; ?>" />
 						<input type="text" class="form-control" placeholder="richard.nixon@not.crook" name="email" />
 					</div>
 				</div>
