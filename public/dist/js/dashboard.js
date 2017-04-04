@@ -29,4 +29,33 @@ $(document).ready(function() {
         });
         event.preventDefault();
     });
+    
+    $('#newadminbox').submit(function(event) {
+        document.getElementById("submitbtn_newadmin").disabled = true;
+        document.getElementById("submitbtn_newadmin").innerHTML = "Adding...";
+        
+        var formData = {
+            'email'                : $('input[name=email]').val(),
+            '_csrf'                : $('input[name=_csrf]').val()
+        };
+
+        var formsub = $.ajax({
+            type        : 'POST',
+            url         : '/endpoints/process_new_election_admin.php',
+            data        : formData,
+            dataType    : 'json',
+            encode      : true
+        });
+        
+        formsub.done(function(data) {
+            if (!data.success) {
+                document.getElementById("submitbtn_newadmin").disabled = false;
+                document.getElementById("submitbtn_newadmin").innerHTML = "Error";
+            } else {
+            	$('#newadminbox').modal('hide');
+            	location.reload();
+            }
+        });
+        event.preventDefault();
+    });
 });
