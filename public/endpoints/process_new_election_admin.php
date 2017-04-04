@@ -5,13 +5,14 @@ $errors	= array();
 $data	= array();
 
 if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
-	if(isset($_POST['email']) && !empty($_POST['email'])) {
+	if(isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['election']) && !empty($_POST['election']) && is_numeric($_POST['election']) ) {
 		global $pdo;
 		
 		$email = $_POST['email'];
+		$election_id = $_POST['election'];
 		
 		$uid = session_get_user_id();
-    $uid_of_email = get_user_id($email);
+                $uid_of_email = get_user_id($email);
 		$stmt = $pdo->prepare("INSERT INTO `access` (`election`, `user`, `level`) VALUES (?, ?, 254)");
 		$stmt->bindParam(1, $election_id);
 		$stmt->bindParam(2, $uid_of_email);
