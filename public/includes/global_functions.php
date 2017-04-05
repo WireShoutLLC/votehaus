@@ -117,6 +117,18 @@ function log_auditable_action($user, $action, $details = NULL) {
         $stmt->execute();
 }
 
+function make_user_elecadmin($uid, $eid){
+	global $pdo;
+	
+	$stmt = $pdo->prepare("INSERT INTO `access` (`election`, `user`, `level`) VALUES (?, ?, 254)");
+	$stmt->bindParam(1, $eid);
+	$stmt->bindParam(2, $uid);
+	$stmt->execute();
+	
+	$admin = session_get_user_id();
+	log_auditable_action($admin, "make_elecadmin", $uid);
+}
+
 //Session Functions
 function randString($length, $charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789') {
 	$str = '';
