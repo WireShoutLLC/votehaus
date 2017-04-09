@@ -129,6 +129,25 @@ function make_user_elecadmin($uid, $eid){
 	log_auditable_action($admin, "make_elecadmin", $uid);
 }
 
+function delete_user_elecadmin($uid, $eid){
+	global $pdo;
+	
+	$admin = session_get_user_id();
+	
+	if($uid == $admin = session_get_user_id()) { 
+		$stmt = $pdo->prepare("DELETE FROM `access` WHERE `election` = ? AND `user` = ?");
+		$stmt->bindParam(1, $eid);
+		$stmt->bindParam(2, $uid);
+		$stmt->execute();
+
+		log_auditable_action($admin, "del_elecadmin", $uid);
+		
+		return true;
+	} else {
+		return false;
+	}
+}
+
 //Session Functions
 function randString($length, $charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789') {
 	$str = '';
