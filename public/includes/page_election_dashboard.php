@@ -71,7 +71,7 @@ $admins = get_election_admins($_GET['id']);
             </div>
             <div class="box-body">
               <table class="table">
-                <tr>
+                <tr id="admin-<?php echo $admin['user']; ?>">
                   <th>Email</th>
                   <th style="width: 40px">Action</th>
                 </tr>
@@ -79,7 +79,13 @@ $admins = get_election_admins($_GET['id']);
                         $email = get_user_email($admin['user']);?>
                 <tr>
                   <td><?php echo $email; ?></td>
-                  <td><button type="button" class="btn btn-block btn-danger btn-xs"><i class="fa fa-minus-square"></i></button></td>
+                  <td id="delete-admin-<?php echo $admin['user']; ?>"><form name="deleteadminbox" id="deleteadminbox" action="endpoints/process_delete_election_admin.php" method="post">
+			  <?php csrf_render_html(); ?>
+			  <input type="hidden" name="election_id_deleteadmin" value="<?php echo $_GET['id']; ?>" />
+			  <input type="hidden" name="admin_id_deleteadmin" value="<?php echo $admin['user']; ?>" />
+			  <button type="submit" class="btn btn-block btn-danger btn-xs"><i class="fa fa-minus-square"></i></button>
+		      </form>
+		  </td>
                 </tr>
 		<?php } ?>
               </table>
