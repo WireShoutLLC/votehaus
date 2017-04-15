@@ -29,7 +29,7 @@ $admins = get_election_admins($_GET['id']);
 	<script>$(document).ready(function() { $('#election_name').editable({ params: function(params) { params.csrf = "<?php echo session_csrf_add(); ?>"; return params; }});});</script>
     <section class="content">
       <div class="row">
-        <div class="col-lg-5 col-xs-12">
+        <div class="col-lg-8 col-xs-12">
           <!-- Questions -->
           <div class="box box-primary">
             <div class="box-header with-border">
@@ -53,22 +53,6 @@ $admins = get_election_admins($_GET['id']);
                   <?php } ?>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-xs-12">
-          <!-- Voters -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Voter Import</h3>
-            </div>
-            <div class="box-body">
-              <form>
-                <div class="form-group">
-                  <label for="voterFile">Upload Voter CSV</label>
-                  <input type="file" id="voterFile">
-                </div>
-              </form>
             </div>
           </div>
         </div>
@@ -104,6 +88,20 @@ $admins = get_election_admins($_GET['id']);
                 </tr>
 		<?php } ?>
               </table>
+            </div>
+          </div>
+          <!-- Voters -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Voter Import</h3>
+            </div>
+            <div class="box-body">
+              <form>
+                <div class="form-group">
+                  <label for="voterFile">Upload Voter CSV</label>
+                  <input type="file" id="voterFile">
+                </div>
+              </form>
             </div>
           </div>
         </div>
