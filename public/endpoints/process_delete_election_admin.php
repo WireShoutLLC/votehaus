@@ -10,10 +10,12 @@ if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
 		
 		$admin_id = $_POST['admin_id_deleteadmin'];
 		$election_id = $_POST['election_id_deleteadmin'];
-    delete_user_elecadmin($admin_id, $election_id);
-
-    $data['success'] = true;
-    $data['message'] = 'Success!';
+		if(delete_user_elecadmin($admin_id, $election_id)) {
+			$data['success'] = true;
+			$data['message'] = 'Success!';
+		} else {
+			$errors['name'] = 'An error occurred.';
+		}
 	} else {
 		$errors['name'] = 'Invalid name.';
 	}
@@ -22,8 +24,8 @@ if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
 }
 
 if(!empty($errors)) {
-    $data['success'] = false;
-    $data['errors']  = $errors;
+	$data['success'] = false;
+	$data['errors']  = $errors;
 }
 
 echo json_encode($data);
