@@ -40,7 +40,7 @@ $admins = get_election_admins($_GET['id']);
                 <ul class="nav nav-tabs">
                   <?php $questions = get_questions_for_election($_GET['id']); 
                   foreach($questions as $question) { ?>
-                  <li><a href="#tab_<?php $data = json_decode($question['data'], true); echo $data['name']; ?>" data-toggle="tab" aria-expanded="false"><?php echo $question['order']; ?></a></li>
+                  <li><a href="#tab_<?php echo $question['order']; ?>" data-toggle="tab" aria-expanded="false"><?php $data = json_decode($question['data'], true); echo $data['name']; ?></a></li>
                   <?php } ?>
                   <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-plus-circle"></i></a></li>
                 </ul>
