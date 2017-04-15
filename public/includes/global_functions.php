@@ -90,7 +90,7 @@ function get_election_admins($eid) {
 function get_questions_for_election($id) {
         global $pdo;
 
-        $stmt = $pdo->prepare("SELECT `id`, `order`, `data` FROM `questions` WHERE `election`= ?");
+        $stmt = $pdo->prepare("SELECT `id`, `order`, `data` FROM `questions` WHERE `election`= ? ORDER BY `order` ASC");
         $stmt->bindParam(1, $id);
         $stmt->execute();
         $questions = $stmt->fetchAll();
