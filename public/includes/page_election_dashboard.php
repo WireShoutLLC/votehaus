@@ -45,10 +45,12 @@ $admins = get_election_admins($_GET['id']);
                   <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-plus-circle"></i></a></li>
                 </ul>
                 <div class="tab-content">
-                  <div class="tab-pane" id="tab_1">
-                    <p>Exactly like the original bootstrap tabs except you should use
-                    the custom wrapper <code>.nav-tabs-custom</code> to achieve this style.</p>
+                  <?php $questions = get_questions_for_election($_GET['id']); 
+                  foreach($questions as $question) { ?>
+                  <div class="tab-pane" id="tab_<?php echo $question['order']; ?>">
+                    <p><?php echo $question['data']; ?></p>
                   </div>
+                  <?php } ?>
                 </div>
               </div>
             </div>
