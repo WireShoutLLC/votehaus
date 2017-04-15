@@ -61,7 +61,6 @@
 		                				<img src="<?php echo session_get_value("avatar"); ?>" class="img-circle" alt="User Image">
 		                				<p>
 		                  					<?php echo session_get_value("email"); ?>
-		                  					<small>Install Administrator</small>
 		                				</p>
 		              				</li>
 		              				<li class="user-footer">
