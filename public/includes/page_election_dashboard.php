@@ -40,13 +40,12 @@ $admins = get_election_admins($_GET['id']);
                 <ul class="nav nav-tabs">
                   <?php $questions = get_questions_for_election($_GET['id']); 
                   foreach($questions as $question) { ?>
-                  <li><a href="#tab_<?php echo $question['order']; ?>" data-toggle="tab" aria-expanded="false"><?php echo $question['order']; ?></a></li>
+                  <li><a href="#tab_<?php echo json_decode($question['data'])['name']; ?>" data-toggle="tab" aria-expanded="false"><?php echo $question['order']; ?></a></li>
                   <?php } ?>
                   <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-plus-circle"></i></a></li>
                 </ul>
                 <div class="tab-content">
-                  <?php $questions = get_questions_for_election($_GET['id']); 
-                  foreach($questions as $question) { ?>
+                  <?php foreach($questions as $question) { ?>
                   <div class="tab-pane" id="tab_<?php echo $question['order']; ?>">
                     <p><?php echo $question['data']; ?></p>
                   </div>
@@ -75,7 +74,7 @@ $admins = get_election_admins($_GET['id']);
                   <th style="width: 40px">Action</th>
                 </tr>
 		<?php foreach($admins as $admin) { 
-                        $email = get_user_email($admin['user']);?>
+                        $email = get_user_email($admin['user']); ?>
                 <tr>
                   <td><?php echo $email; ?></td>
                   <td id="delete-admin-<?php echo $admin['user']; ?>"><form name="deleteadminbox" id="deleteadminbox" action="endpoints/process_delete_election_admin.php" method="post">
