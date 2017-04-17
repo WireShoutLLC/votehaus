@@ -15,7 +15,7 @@ global $config;
 	
 		<div class="lockscreen-item">
 			<div class="lockscreen-image">
-				<img src="/dist/img/user1-128x128.jpg" alt="User Image">
+				<img src="/dist/img/ballot1-128x128.png" alt="User Image">
 			</div>
 			<form class="lockscreen-credentials">
 				<div class="input-group">
