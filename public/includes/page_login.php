@@ -36,6 +36,9 @@ global $config;
 				</div>
 			</form>
 		</div>
+		<div class="text-center">
+			<a href="/vote">Or sign in as a voter</a>
+		</div>
 	</div>
 	
 	<!-- jQuery 2.2.3 -->
