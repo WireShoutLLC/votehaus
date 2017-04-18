@@ -32,18 +32,17 @@ function get_users_all_elections($uid) {
 }
 
 function get_user_election_access($uid, $eid) {
-        global $pdo;
+	global $pdo;
 
-        $stmt = $pdo->prepare("SELECT `level` FROM `access` WHERE `user`= ? AND `election`= ?");
-        $stmt->bindParam(1, $uid);
+	$stmt = $pdo->prepare("SELECT `level` FROM `access` WHERE `user`= ? AND `election`= ?");
+	$stmt->bindParam(1, $uid);
 	$stmt->bindParam(2, $eid);
-        $stmt->execute();
-        $access = $stmt->fetchAll();
-        if($stmt->rowCount() == 1) {
-		$level = $access['level'];
+	$stmt->execute();
+	$access = $stmt->fetchAll();
+	if($stmt->rowCount() == 1) {
+		$level = $access[0]['level'];
 		return $level; 
 	} else {
-		error_log("get_user_election_access");
 		return false;
 	}
 }
