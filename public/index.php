@@ -13,8 +13,11 @@ if(session_is_logged_in()) {
 			//Election Administrator
 			require('includes/page_election_dashboard.php');
 		} else if($access == 100) {
-			//Nominee
-			require('includes/page_election_nominate_1.php');
+			//Nominee Acceptance
+			require('includes/page_election_nominate_1_pending.php');
+		} else if($access == 101) {
+			//Nominee Acceptance
+			require('includes/page_election_nominate_1_accepted.php');
 		}
 	} else if($_GET['pg'] == "logout") {
 		session_logout_user();
