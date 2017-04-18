@@ -1,8 +1,8 @@
 			<footer class="main-footer">
 				<div class="pull-right hidden-xs">
-			    	Commit version...
-			    </div>
-			    <strong>Copyright &copy; <?php echo date("Y"); ?> <a href="https://wireshout.com">WireShout, LLC.</a>.</strong> All rights reserved.
+			    		<a href="https://github.com/wireshoutllc/votehaus">Source</a>
+				</div>
+				<strong>Copyright &copy; <?php echo date("Y"); ?> <a href="https://wireshout.com">WireShout, LLC.</a>.</strong> All rights reserved.
 			</footer>
 		</div>
 		
