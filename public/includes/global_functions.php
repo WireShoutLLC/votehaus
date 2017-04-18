@@ -101,6 +101,16 @@ function get_election_admins($eid) {
         return $result;
 }
 
+function get_election_name($eid) {
+	global $pdo;
+
+	$stmt = $pdo->prepare("SELECT `name` FROM `elections` WHERE `id`= ?");
+	$stmt->bindParam(1, $_GET['id']);
+	$stmt->execute();
+	$result = $stmt->fetch(PDO::FETCH_NUM)[0];
+	return $result;
+}
+
 function get_questions_for_election($id) {
         global $pdo;
 
