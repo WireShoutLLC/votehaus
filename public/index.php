@@ -12,12 +12,15 @@ if(session_is_logged_in()) {
 		if($access >= 250) {
 			//Election Administrator
 			require('includes/page_election_dashboard.php');
-		} else if($access == 100) {
-			//Nominee Acceptance
-			require('includes/page_election_nominate_1_pending.php');
 		} else if($access == 101) {
 			//Nominee Acceptance
 			require('includes/page_election_nominate_1_accepted.php');
+		} else if($access == 100) {
+			//Nominee Acceptance
+			require('includes/page_election_nominate_1_pending.php');
+		} else {
+			http_response_code(404);
+			require('includes/page_template_dash_404.php');
 		}
 	} else if($_GET['pg'] == "logout") {
 		session_logout_user();
