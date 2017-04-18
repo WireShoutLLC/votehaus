@@ -6,9 +6,9 @@ if(session_is_logged_in()) {
 		die(header("Location: /dashboard"));
 	} else if($_GET['pg'] == "dashboard") {
 		require('includes/page_dashboard.php');
-	} else if($_GET['pg'] == "election" && does_user_have_election_access(session_get_user_id(), $_GET['id'])) {
-		$access = get_user_election_access(session_get_user_id(), $_GET['id']);
-		print_r($access);
+	} else if($_GET['pg'] == "election") {
+		$uid = session_get_user_id();
+		$access = get_user_election_access($uid, $_GET['id']);
 		if($access >= 250) {
 			//Election Administrator
 			require('includes/page_election_dashboard.php');
