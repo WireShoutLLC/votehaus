@@ -6,18 +6,14 @@ global $config;
 require_once('page_template_dash_head.php');
 require_once('page_template_dash_sidebar.php');
 
-$stmt = $pdo->prepare("SELECT `name` FROM `elections` WHERE `id`= ?");
-$stmt->bindParam(1, $_GET['id']);
-$stmt->execute();
-$election_name = $stmt->fetch(PDO::FETCH_NUM)[0];
-
-$admins = get_election_admins($_GET['id']);
+$election_id = $_GET['id'];
+$election_name = get_election_name($election_id);
 
 ?>
 
 <div class="content-wrapper">
 	<section class="content-header">
-		<h1 id="election_name" data-type="text" data-url="/endpoints/process_election_modify.php" data-pk="<?php echo $_GET['id']; ?>">
+		<h1 id="election_name" data-type="text" data-url="/endpoints/process_election_modify.php" data-pk="<?php echo $election_id; ?>">
 			<?php echo $election_name; ?>
 		</h1>
 		<ol class="breadcrumb">
@@ -38,7 +34,7 @@ $admins = get_election_admins($_GET['id']);
 					<div class="box-body">
 						<div class="nav-tabs-custom">
 							<ul class="nav nav-tabs">
-								<?php $questions = get_questions_for_election($_GET['id']); 
+								<?php $questions = get_questions_for_election($election_id); 
 								foreach($questions as $question) { ?>
 								<li><a href="#tab_<?php echo $question['order']; ?>" data-toggle="tab" aria-expanded="false"><?php $data = json_decode($question['data'], true); echo $data['name']; ?><?php if($data['required']) { echo "*"; } ?></a></li>
 								<?php } ?>
@@ -80,7 +76,7 @@ $admins = get_election_admins($_GET['id']);
 								<td id="delete-admin-<?php echo $admin['user']; ?>">
 									<form name="deleteadminbox" id="deleteadminbox" action="endpoints/process_delete_election_admin.php" method="post">
 										<?php csrf_render_html(); ?>
-										<input type="hidden" name="election_id_deleteadmin" value="<?php echo $_GET['id']; ?>" />
+										<input type="hidden" name="election_id_deleteadmin" value="<?php echo $election_id; ?>" />
 										<input type="hidden" name="admin_id_deleteadmin" value="<?php echo $admin['user']; ?>" />
 										<button type="submit" class="btn btn-block btn-danger btn-xs"><i class="fa fa-minus-square"></i></button>
 									</form>
@@ -121,7 +117,7 @@ $admins = get_election_admins($_GET['id']);
 					<div class="form-group">
 						<label>Admin Email Address</label>
 						<?php csrf_render_html(); ?>
-						<input type="hidden" name="election_id_newadmin" value="<?php echo $_GET['id']; ?>" />
+						<input type="hidden" name="election_id_newadmin" value="<?php echo $election_id; ?>" />
 						<input type="text" class="form-control" placeholder="richard.nixon@not.crook" name="email" />
 					</div>
 				</div>

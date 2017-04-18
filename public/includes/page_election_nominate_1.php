@@ -6,16 +6,14 @@ global $config;
 require_once('page_template_dash_head.php');
 require_once('page_template_dash_sidebar.php');
 
-$stmt = $pdo->prepare("SELECT `name` FROM `elections` WHERE `id`= ?");
-$stmt->bindParam(1, $_GET['id']);
-$stmt->execute();
-$election_name = $stmt->fetch(PDO::FETCH_NUM)[0];
+$election_id = $_GET['id'];
+$election_name = get_election_name($election_id);
 
 ?>
 
 <div class="content-wrapper">
 	<section class="content-header">
-		<h1 id="election_name" data-type="text" data-url="/endpoints/process_election_modify.php" data-pk="<?php echo $_GET['id']; ?>">
+		<h1 id="election_name">
 			<?php echo $election_name; ?>
 		</h1>
 		<ol class="breadcrumb">

@@ -4,6 +4,7 @@ require_once('config.php');
 global $config;
 
 $elections = get_current_user_all_elections();
+$election_id = $_GET['id'];
 
 ?>
 <aside class="main-sidebar">
@@ -30,7 +31,7 @@ $elections = get_current_user_all_elections();
 	        	
 	        	if($stage != "archived") {
 	        	?>
-        	<li <?php if($_GET['id'] == $row['election']) { ?>class="active"<?php } ?>><a href="/election?id=<?php echo $row["election"]; ?>"><i class="fa fa-users"></i> <span><?php echo $election_name; ?></span><?php echo $infobox; ?></a></li>
+        	<li <?php if($election_id == $row['election']) { ?>class="active"<?php } ?>><a href="/election?id=<?php echo $row["election"]; ?>"><i class="fa fa-users"></i> <span><?php echo $election_name; ?></span><?php echo $infobox; ?></a></li>
 	        	<?php 
 	        	}
 	        } ?>
