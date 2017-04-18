@@ -31,9 +31,9 @@ $election_name = get_election_name($election_id);
 						<h3 class="box-title">Nomination Notice</h3>
 					</div>
 					<div class="box-body">
-						<h1>Congratulations! You have been nominated for a position.</h1>
+						<h3>Congratulations, you have been nominated!</h3>
 						<p>Please read the following notice from the Election Administrators:</p>
-						<p></p>
+						
 					</div>
 				</div>
 			</div>
