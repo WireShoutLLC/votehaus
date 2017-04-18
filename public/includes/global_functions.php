@@ -43,6 +43,7 @@ function get_user_election_access($uid, $eid) {
 		$level = $access['level'];
 		return $level; 
 	} else {
+		error_log("get_user_election_access");
 		return false;
 	}
 }
