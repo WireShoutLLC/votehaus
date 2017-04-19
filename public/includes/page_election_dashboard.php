@@ -41,9 +41,10 @@ $election_name = get_election_name($election_id);
 								<li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-plus-circle"></i></a></li>
 							</ul>
 							<div class="tab-content">
-								<?php foreach($questions as $question) { ?>
+								<?php foreach($questions as $question) { 
+								$questiondata = json_decode($question['data'], true); ?>
 								<div class="tab-pane" id="tab_<?php echo $question['order']; ?>">
-									<p><?php echo $question['data']; ?></p>
+									<?php render_question($questiondata); ?>
 								</div>
 								<?php } ?>
 							</div>

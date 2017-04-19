@@ -173,6 +173,26 @@ function delete_user_elecadmin($uid, $eid, $override = false) {
 	}
 }
 
+function render_question($questiondata) {
+	global $pdo;
+	
+	if($questiondata['type'] == "nominee_1") {
+		?>
+		<div class="alert alert-success">
+			<h4><i class="icon fa fa-ban"></i><?php echo $questiondata['type']; ?></h4>
+			It works!
+		</div>
+		<?php 
+	} else {
+		?>
+		<div class="alert alert-danger">
+			<h4><i class="icon fa fa-ban"></i>Invalid Question Type</h4>
+			The question type "<?php echo $questiondata['type']; ?>" does not exist.
+		</div>
+		<?php 
+	}
+}
+
 //Session Functions
 function randString($length, $charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789') {
 	$str = '';
