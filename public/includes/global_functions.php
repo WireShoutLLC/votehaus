@@ -178,9 +178,38 @@ function render_question($questiondata) {
 	
 	if($questiondata['type'] == "nominee_1") {
 		?>
-		<div class="alert alert-success">
-			<h4><i class="icon fa fa-ban"></i><?php echo $questiondata['type']; ?></h4>
-			It works!
+		<div class="row">
+			<!-- Type -->
+		</div>
+		<div class="row">
+			<!-- Nominees -->
+			<h4>Nominees</h4>
+			<table class="table">
+				<tr id="nominee-<?php echo $admin['user']; ?>">
+					<th>Email</th>
+					<th style="width: 40px">Action</th>
+				</tr>
+				<?php $nominees = $questiondata['data']['nominees']; 
+				foreach($nominees as $nominee) { ?>
+				<tr>
+					<td><?php echo $email; ?></td>
+					<td id="delete-nominee-<?php echo $nominee; ?>">
+						<form name="deletenomineebox" id="deletenomineebox" action="endpoints/process_delete_election_nominee.php" method="post">
+							<?php csrf_render_html(); ?>
+							<input type="hidden" name="election_id_deleteadmin" value="<?php echo $election_id; ?>" />
+							<input type="hidden" name="admin_id_deleteadmin" value="<?php echo $nominee; ?>" />
+							<button type="submit" class="btn btn-block btn-danger btn-xs"><i class="fa fa-minus-square"></i></button>
+						</form>
+					</td>
+				</tr>
+				<?php } ?>
+			</table>
+		</div>
+		<div class="row">
+			<!-- Acceptance Notice -->
+		</div>
+		<div class="row">
+			<!-- Voter Guide -->
 		</div>
 		<?php 
 	} else {
