@@ -70,7 +70,9 @@ $election_name = get_election_name($election_id);
 								<th>Email</th>
 								<th style="width: 40px">Action</th>
 							</tr>
-							<?php foreach($admins as $admin) { 
+							<?php 
+							$admins = get_election_admins($election_id);
+							foreach($admins as $admin) { 
 							$email = get_user_email($admin['user']); ?>
 							<tr>
 								<td><?php echo $email; ?></td>
