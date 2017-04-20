@@ -192,8 +192,8 @@ function render_question($questiondata) {
 				<?php $nominees = $questiondata['data']['nominees']; 
 				foreach($nominees as $nominee) { ?>
 				<tr>
-					<td><?php echo $email; ?></td>
-					<td id="delete-nominee-<?php echo $nominee; ?>">
+					<td><?php echo $nominee; ?></td>
+					<td>
 						<form name="deletenomineebox" id="deletenomineebox" action="endpoints/process_delete_election_nominee.php" method="post">
 							<?php csrf_render_html(); ?>
 							<input type="hidden" name="election_id_deleteadmin" value="<?php echo $election_id; ?>" />
