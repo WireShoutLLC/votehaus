@@ -10,11 +10,19 @@ if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
 		$uid_of_email = get_user_id($email);
 		$election_id = $_POST['election'];
 		if($uid_of_email != FALSE) {
-			make_user_elecadmin($uid_of_email, $election_id);
+			set_user_election_access($uid_of_email, $election_id, 254);
 			$data['success'] = true;
 			$data['message'] = 'Success!';
 		} else {
-			$errors['name'] = 'User does not exist.';
+			if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
+				create_keyed_user_account($email);
+				$uid = get_user_id($email);
+				set_user_election_access($uid, $election_id, 254);
+				$data['success'] = true;
+				$data['message'] = 'Success!';
+			} else {
+				$errors['name'] = 'Invalid email.';
+			}
 		}
 	} else {
 		$errors['name'] = 'Invalid name.';
