@@ -130,14 +130,18 @@ function has_valid_reg_key($email, $key) {
 function create_keyed_user_account($email) {
 	global $pdo;
 
-	$key = randString(32);
-	$regkey = "REGKEY=" . $key;
-	$stmt = $pdo->prepare("INSERT INTO `users` (`email`, `password`) VALUES (?, ?)");
-	$stmt->bindParam(1, $email);
-	$stmt->bindParam(2, $regkey);
-	$stmt->execute();
-	$result = $stmt->fetchAll();
-	return $key;
+	if(get_user_id($email) == FALSE) {
+		$key = randString(32);
+		$regkey = "REGKEY=" . $key;
+		$stmt = $pdo->prepare("INSERT INTO `users` (`email`, `password`) VALUES (?, ?)");
+		$stmt->bindParam(1, $email);
+		$stmt->bindParam(2, $regkey);
+		$stmt->execute();
+		$result = $stmt->fetchAll();
+		return $key;
+	} else {
+		return false;
+	}
 }
 
 function reset_user_password($email, $passwordhash) {
