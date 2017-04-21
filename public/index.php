@@ -34,6 +34,8 @@ if(session_is_logged_in()) {
 		die(header("Location: /login"));
 	} else if($_GET['pg'] == "login") {
 		require('includes/page_login.php');
+	} else if($_GET['pg'] == "register") {
+		require('includes/page_register.php');
 	} else if($_GET['pg'] == "vote") {
 		require('includes/page_voter_login.php');
 	} else {
