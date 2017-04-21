@@ -26,7 +26,7 @@ global $config;
 					<div class="g-recaptcha" data-sitekey="<?php echo $config['captcha']['pub']; ?>"></div>
 				</div>
 				<?php csrf_render_html(); ?>
-				<input name="regkey" value="<?php echo $_GET['key']; ?>">
+				<input type="hidden" name="regkey" value="<?php echo $_GET['key']; ?>">
 				<div class="row">
 					<div class="col-xs-12">
 						<button class="btn btn-primary btn-block btn-flat">Register</button>
