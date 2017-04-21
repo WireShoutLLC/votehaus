@@ -103,6 +103,22 @@ function get_user_email($uid) {
 	}
 }
 
+function has_valid_reg_key($email, $key) {
+	global $pdo;
+
+	$regkey = "REGKEY=" . $key;
+	$stmt = $pdo->prepare("SELECT `id` FROM `users` WHERE `email`= ? AND `password`= ?");
+	$stmt->bindParam(1, $email);
+	$stmt->bindParam(2, $regkey);
+	$stmt->execute();
+	$result = $stmt->fetchAll();
+	if($stmt->rowCount() == 1) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
 function get_user_id($email) {
 	global $pdo;
 
