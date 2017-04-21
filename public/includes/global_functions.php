@@ -149,6 +149,15 @@ function reset_user_password($email, $passwordhash) {
 	$stmt->execute();
 }
 
+function change_election_stage($eid, $stage) {
+	global $pdo;
+
+	$stmt = $pdo->prepare("UPDATE `elections` SET `stage`= ? WHERE `id`= ?");
+	$stmt->bindParam(1, $stage);
+	$stmt->bindParam(2, $eid);
+	$stmt->execute();
+}
+
 function get_user_id($email) {
 	global $pdo;
 
