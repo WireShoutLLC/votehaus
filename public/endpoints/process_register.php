@@ -8,7 +8,7 @@ if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
 	$recaptcha = new \ReCaptcha\ReCaptcha($config['captcha']['priv'], new \ReCaptcha\RequestMethod\CurlPost());
 	$resp = $recaptcha->verify($_POST['g-recaptcha-response']);
 	if ($resp->isSuccess()) {
-		if((isset($_POST['email']) && !empty($_POST['email'])) && (isset($_POST['password']) && !empty($_POST['password']))) {
+		if((isset($_POST['email']) && !empty($_POST['email']) && get_user_id($_POST['email']) == FALSE) && (isset($_POST['password']) && !empty($_POST['password']))) {
 			global $pdo;
 			
 			$email = $_POST['email'];
