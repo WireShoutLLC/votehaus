@@ -27,8 +27,11 @@ global $config;
 				</div>
 				<?php csrf_render_html(); ?>
 				<div class="row">
-					<div class="col-xs-8">
-						<a href="#" class="btn btn-primary btn-block btn-flat">Forgot Password</a>
+					<div class="col-xs-4">
+						<a href="/forgot" class="btn btn-primary btn-block btn-flat">Forgot Password</a>
+					</div>
+					<div class="col-xs-4">
+						<a href="/register" class="btn btn-primary btn-block btn-flat">Register</a>
 					</div>
 					<div class="col-xs-4">
 						<button class="btn btn-primary btn-block btn-flat">Sign In</button>
