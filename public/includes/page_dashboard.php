@@ -19,9 +19,14 @@ require_once('page_template_dash_sidebar.php');
     </section>
 
     <section class="content">
-
-      <!-- Your Page Content Here -->
-     
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="alert alert-info">
+            <h4><i class="icon fa fa-info"></i> Select an Election</h4>
+            Please select an election from the sidebar.
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 
