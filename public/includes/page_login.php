@@ -27,14 +27,16 @@ global $config;
 				</div>
 				<?php csrf_render_html(); ?>
 				<div class="row">
-					<div class="col-xs-4">
+					<div class="col-xs-12">
+						<button class="btn btn-primary btn-block btn-flat">Sign In</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-6">
 						<a href="/forgot" class="btn btn-primary btn-block btn-flat">Forgot Password</a>
 					</div>
-					<div class="col-xs-4">
+					<div class="col-xs-6">
 						<a href="/register" class="btn btn-primary btn-block btn-flat">Register</a>
-					</div>
-					<div class="col-xs-4">
-						<button class="btn btn-primary btn-block btn-flat">Sign In</button>
 					</div>
 				</div>
 			</form>
