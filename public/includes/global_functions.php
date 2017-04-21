@@ -123,7 +123,7 @@ function get_election_admins($eid) {
 function does_election_exist($eid) {
 	global $pdo;
 
-	$stmt = $pdo->prepare("SELECT `election` FROM `elections` WHERE `id`= ?");
+	$stmt = $pdo->prepare("SELECT `id` FROM `elections` WHERE `id`= ?");
 	$stmt->bindParam(1, $eid);
 	$stmt->execute();
 	if($stmt->rowCount() == 1) {
