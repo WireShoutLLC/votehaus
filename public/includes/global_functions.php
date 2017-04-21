@@ -219,38 +219,6 @@ function log_auditable_action($user, $action, $details = NULL) {
 	$stmt->execute();
 }
 
-function make_user_elecadmin($uid, $eid) {
-	global $pdo;
-	
-	$stmt = $pdo->prepare("INSERT INTO `access` (`election`, `user`, `level`) VALUES (?, ?, 254)");
-	$stmt->bindParam(1, $eid);
-	$stmt->bindParam(2, $uid);
-	$stmt->execute();
-	
-	$admin = session_get_user_id();
-	log_auditable_action($admin, "make_elecadmin", $uid);
-}
-
-function delete_user_elecadmin($uid, $eid, $override = false) {
-	global $pdo;
-	
-	$admin = session_get_user_id();
-	$adminaccess = get_user_election_access($admin, $eid);
-	
-	if(($uid != $admin && $adminaccess == 255) || $override) { 
-		$stmt = $pdo->prepare("DELETE FROM `access` WHERE `election` = ? AND `user` = ?");
-		$stmt->bindParam(1, $eid);
-		$stmt->bindParam(2, $uid);
-		$stmt->execute();
-
-		log_auditable_action($admin, "del_elecadmin", $uid);
-		
-		return true;
-	} else {
-		return false;
-	}
-}
-
 function render_question($questiondata, $eid) {
 	global $pdo;
 	
