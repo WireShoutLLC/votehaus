@@ -45,7 +45,7 @@ $election_name = get_election_name($election_id);
 					</div>
 					<div class="box-body">
 						<p>Would you like to accept this nomination and participate in this election?</p>
-						<form name="nomination_acceptance" id="nomination_acceptance" action="endpoints/process_election_nomination.php" method="post">
+						<form name="nomination_acceptance" id="nomination_acceptance" action="endpoints/process_election_nomination_acceptance.php" method="post">
 							<?php csrf_render_html(); ?>
 							<input type="hidden" name="election_id" value="<?php echo $election_id; ?>" />
 							<button type="submit" name="accept" class="btn btn-block btn-success btn-lg">I Accept</button>

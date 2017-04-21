@@ -8,7 +8,7 @@ if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
 	if(isset($_POST['election']) && !empty($_POST['election'])) {
 		global $pdo;
 		
-		$election = $_POST['election'];
+		$election = htmlspecialchars($_POST['election']);
 		
 		$stmt = $pdo->prepare("INSERT INTO `elections` (`name`) VALUES (?)");
 		$stmt->bindParam(1, $election);

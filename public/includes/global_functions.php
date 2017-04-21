@@ -47,6 +47,25 @@ function get_user_election_access($uid, $eid) {
 	}
 }
 
+function set_user_election_access($uid, $eid, $level) {
+	global $pdo;
+
+	if($level != 0) {
+		$stmt = $pdo->prepare("UPDATE `access` SET `level`= ? WHERE `user`= ? AND `election`= ?");
+		$stmt->bindParam(1, $level);
+		$stmt->bindParam(2, $uid);
+		$stmt->bindParam(3, $eid);
+		$stmt->execute();
+		log_auditable_action($admin, "set_elec_access", $uid);
+	} else {
+		$stmt = $pdo->prepare("DELETE FROM `access` WHERE `user`= ? AND `election`= ?");
+		$stmt->bindParam(1, $uid);
+		$stmt->bindParam(2, $eid);
+		$stmt->execute();
+		log_auditable_action($admin, "del_elec_access", $uid);
+	}
+}
+
 function does_user_have_election_access($uid, $eid) {
 	global $pdo;
 
@@ -62,13 +81,13 @@ function does_user_have_election_access($uid, $eid) {
 }
 
 function get_user_email($uid) {
-        global $pdo;
+	global $pdo;
 
-        $stmt = $pdo->prepare("SELECT `email` FROM `users` WHERE `id`= ?");
-        $stmt->bindParam(1, $uid);
-        $stmt->execute();
-        $result = $stmt->fetchAll();
-        if($stmt->rowCount() == 1) {
+	$stmt = $pdo->prepare("SELECT `email` FROM `users` WHERE `id`= ?");
+	$stmt->bindParam(1, $uid);
+	$stmt->execute();
+	$result = $stmt->fetchAll();
+	if($stmt->rowCount() == 1) {
 		$email = $result[0]['email'];
 		return $email;
 	} else {
@@ -77,13 +96,13 @@ function get_user_email($uid) {
 }
 
 function get_user_id($email) {
-        global $pdo;
+	global $pdo;
 
-        $stmt = $pdo->prepare("SELECT `id` FROM `users` WHERE `email`= ?");
-        $stmt->bindParam(1, $email);
-        $stmt->execute();
-        $result = $stmt->fetchAll();
-        if($stmt->rowCount() == 1) {
+	$stmt = $pdo->prepare("SELECT `id` FROM `users` WHERE `email`= ?");
+	$stmt->bindParam(1, $email);
+	$stmt->execute();
+	$result = $stmt->fetchAll();
+	if($stmt->rowCount() == 1) {
 		$id = $result[0]['id'];
 		return $id;
 	} else {
@@ -92,53 +111,66 @@ function get_user_id($email) {
 }
 
 function get_election_admins($eid) {
-        global $pdo;
+	global $pdo;
 
-        $stmt = $pdo->prepare("SELECT `user`, `level` FROM `access` WHERE `election` = ? AND `level` >= 254");
+	$stmt = $pdo->prepare("SELECT `user`, `level` FROM `access` WHERE `election` = ? AND `level` >= 254");
 	$stmt->bindParam(1, $eid);
-        $stmt->execute();
-        $result = $stmt->fetchAll();
-        return $result;
+	$stmt->execute();
+	$result = $stmt->fetchAll();
+	return $result;
+}
+
+function does_election_exist($eid) {
+	global $pdo;
+
+	$stmt = $pdo->prepare("SELECT `election` FROM `elections` WHERE `id`= ?");
+	$stmt->bindParam(1, $eid);
+	$stmt->execute();
+	if($stmt->rowCount() == 1) {
+		return true;
+	} else {
+		return false;
+	}
 }
 
 function get_election_name($eid) {
 	global $pdo;
 
 	$stmt = $pdo->prepare("SELECT `name` FROM `elections` WHERE `id`= ?");
-	$stmt->bindParam(1, $_GET['id']);
+	$stmt->bindParam(1, $eid);
 	$stmt->execute();
 	$result = $stmt->fetch(PDO::FETCH_NUM)[0];
 	return $result;
 }
 
 function get_questions_for_election($id) {
-        global $pdo;
+	global $pdo;
 
-        $stmt = $pdo->prepare("SELECT `id`, `order`, `data` FROM `questions` WHERE `election`= ? ORDER BY `order` ASC");
-        $stmt->bindParam(1, $id);
-        $stmt->execute();
-        $questions = $stmt->fetchAll();
-        return $questions;
+	$stmt = $pdo->prepare("SELECT `id`, `order`, `data` FROM `questions` WHERE `election`= ? ORDER BY `order` ASC");
+	$stmt->bindParam(1, $id);
+	$stmt->execute();
+	$questions = $stmt->fetchAll();
+	return $questions;
 }
 
 function get_voters_for_election($id) {
-        global $pdo;
+	global $pdo;
 
-        $stmt = $pdo->prepare("SELECT `id`, `email` FROM `voters` WHERE `election`= ?");
-        $stmt->bindParam(1, $id);
-        $stmt->execute();
-        $voters = $stmt->fetchAll();
-        return $voters;
+	$stmt = $pdo->prepare("SELECT `id`, `email` FROM `voters` WHERE `election`= ?");
+	$stmt->bindParam(1, $id);
+	$stmt->execute();
+	$voters = $stmt->fetchAll();
+	return $voters;
 }
 
 function log_auditable_action($user, $action, $details = NULL) {
 	global $pdo;
 
-        $stmt = $pdo->prepare("INSERT INTO `audit` (`user`, `action`, `details`) VALUES (?, ?, ?)");
-        $stmt->bindParam(1, $user);
+	$stmt = $pdo->prepare("INSERT INTO `audit` (`user`, `action`, `details`) VALUES (?, ?, ?)");
+	$stmt->bindParam(1, $user);
 	$stmt->bindParam(2, $action);
 	$stmt->bindParam(3, $details);
-        $stmt->execute();
+	$stmt->execute();
 }
 
 function make_user_elecadmin($uid, $eid) {
@@ -179,9 +211,6 @@ function render_question($questiondata) {
 	if($questiondata['type'] == "nominee_1") {
 		?>
 		<div class="row">
-			<!-- Type -->
-		</div>
-		<div class="row">
 			<!-- Nominees -->
 			<h4>Nominees</h4>
 			<table class="table">
@@ -207,9 +236,11 @@ function render_question($questiondata) {
 		</div>
 		<div class="row">
 			<!-- Acceptance Notice -->
+			<h4>Nominee Acceptance Notice</h4>
 		</div>
 		<div class="row">
 			<!-- Voter Guide -->
+			<h4>Voter Guide Questions</h4>
 		</div>
 		<?php 
 	} else {
