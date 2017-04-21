@@ -119,6 +119,28 @@ function has_valid_reg_key($email, $key) {
 	}
 }
 
+function create_keyed_user_account($email, $key) {
+	global $pdo;
+
+	$key = randString(32);
+	$regkey = "REGKEY=" . $key;
+	$stmt = $pdo->prepare("INSERT INTO `users` (`email`, `password`) VALUES (?, ?)");
+	$stmt->bindParam(1, $email);
+	$stmt->bindParam(2, $regkey);
+	$stmt->execute();
+	$result = $stmt->fetchAll();
+	return $key;
+}
+
+function reset_user_password($email, $passwordhash) {
+	global $pdo;
+
+	$stmt = $pdo->prepare("UPDATE `users` SET `password`= ? WHERE `email`= ?");
+	$stmt->bindParam(1, $passwordhash);
+	$stmt->bindParam(2, $email);
+	$stmt->execute();
+}
+
 function get_user_id($email) {
 	global $pdo;
 
