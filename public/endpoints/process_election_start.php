@@ -22,6 +22,7 @@ if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
 		}
 		
 		change_election_stage($election_id, 'ready');
+		log_auditable_action($uid, "start_election", $election_id);
 
 		$data['success'] = true;
 		$data['message'] = 'Success!';
