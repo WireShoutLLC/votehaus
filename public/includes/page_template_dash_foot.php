@@ -12,6 +12,8 @@
 		<script src="dist/js/app.min.js"></script>
 		<!-- X-Editable -->
 		<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+		<!-- CK Editor -->
+		<script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
 		<!-- New Election Sidebar Element -->
 		<script src="dist/js/dashboard.js"></script>
 	</body>
