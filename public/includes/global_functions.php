@@ -255,6 +255,19 @@ function render_question($questiondata, $eid) {
 		<div class="row">
 			<!-- Voter Guide -->
 			<h4>Voter Guide Questions</h4>
+			<table class="table">
+				<tr>
+					<th>Question</th>
+					<th style="width: 80px">Char Limit</th>
+				</tr>
+				<?php $voter_guide = $questiondata['data']['voter_guide']; 
+				foreach($voter_guide as $question) { ?>
+				<tr>
+					<td><?php echo $question['question']; ?></td>
+					<td><?php echo $question['limit']; ?></td>
+				</tr>
+				<?php } ?>
+			</table>
 		</div>
 		<?php 
 	} else {
