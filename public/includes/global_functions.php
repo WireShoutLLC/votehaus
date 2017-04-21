@@ -205,7 +205,7 @@ function delete_user_elecadmin($uid, $eid, $override = false) {
 	}
 }
 
-function render_question($questiondata) {
+function render_question($questiondata, $eid) {
 	global $pdo;
 	
 	if($questiondata['type'] == "nominee_1") {
@@ -214,7 +214,7 @@ function render_question($questiondata) {
 			<!-- Nominees -->
 			<h4>Nominees</h4>
 			<table class="table">
-				<tr id="nominee-<?php echo $admin['user']; ?>">
+				<tr>
 					<th>Email</th>
 					<th style="width: 40px">Action</th>
 				</tr>
@@ -225,7 +225,7 @@ function render_question($questiondata) {
 					<td>
 						<form name="deletenomineebox" id="deletenomineebox" action="endpoints/process_delete_election_nominee.php" method="post">
 							<?php csrf_render_html(); ?>
-							<input type="hidden" name="election_id_deleteadmin" value="<?php echo $election_id; ?>" />
+							<input type="hidden" name="election_id_deleteadmin" value="<?php echo $eid; ?>" />
 							<input type="hidden" name="admin_id_deleteadmin" value="<?php echo $nominee; ?>" />
 							<button type="submit" class="btn btn-block btn-danger btn-xs"><i class="fa fa-minus-square"></i></button>
 						</form>

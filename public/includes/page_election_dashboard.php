@@ -44,7 +44,7 @@ $election_name = get_election_name($election_id);
 								<?php foreach($questions as $question) { 
 								$questiondata = json_decode($question['data'], true); ?>
 								<div class="tab-pane" id="tab_<?php echo $question['order']; ?>">
-									<?php render_question($questiondata); ?>
+									<?php render_question($questiondata, $election_id); ?>
 								</div>
 								<?php } ?>
 							</div>
@@ -66,7 +66,7 @@ $election_name = get_election_name($election_id);
 					</div>
 					<div class="box-body">
 						<table class="table">
-							<tr id="admin-<?php echo $admin['user']; ?>">
+							<tr>
 								<th>Email</th>
 								<th style="width: 40px">Action</th>
 							</tr>
