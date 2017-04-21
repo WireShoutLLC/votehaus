@@ -10,7 +10,7 @@ if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
 		
 		$admin_id = $_POST['admin_id_deleteadmin'];
 		$election_id = $_POST['election_id_deleteadmin'];
-		if(delete_user_elecadmin($admin_id, $election_id)) {
+		if(set_user_election_access($admin_id, $election_id, 0)) {
 			$data['success'] = true;
 			$data['message'] = 'Success!';
 		} else {
