@@ -16,7 +16,7 @@ if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
 					if(get_user_id($nominee) == FALSE) {
 						create_keyed_user_account($nominee);
 					}
-					set_user_election_access(get_user_id($nominee), $election_id, 100)
+					set_user_election_access(get_user_id($nominee), $election_id, 100);
 				}
 			}
 		}
