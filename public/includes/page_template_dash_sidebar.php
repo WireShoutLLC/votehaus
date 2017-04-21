@@ -22,10 +22,12 @@ $election_id = $_GET['id'];
 	        	
 	        	if($stage == "created")
 	        		$infobox = '<span class="pull-right-container"><small class="label pull-right bg-yellow">new</small></span>';
+	        	else if($stage == "ready")
+	        		$infobox = '<span class="pull-right-container"><small class="label pull-right bg-green">ready</small></span>';
 	        	else if($stage == "polling")
 	        		$infobox = '<span class="pull-right-container"><small class="label pull-right bg-red">running</small></span>';
 	        	else if($stage == "done")
-	        		$infobox = '<span class="pull-right-container"><small class="label pull-right bg-green">done</small></span>';
+	        		$infobox = '<span class="pull-right-container"><small class="label pull-right bg-gray">done</small></span>';
 	        	else
 	        		$infobox = '';
 	        	
