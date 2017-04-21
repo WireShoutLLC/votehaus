@@ -51,15 +51,23 @@ function set_user_election_access($uid, $eid, $level) {
 	global $pdo;
 
 	if($level != 0) {
-		$stmt = $pdo->prepare("UPDATE `access` SET `level`= ? WHERE `user`= ? AND `election`= ?");
-		$stmt->bindParam(1, $level);
-		$stmt->bindParam(2, $uid);
-		$stmt->bindParam(3, $eid);
-		$stmt->execute();
-		if (!$stmt) {
-			error_log(print_r($stmt->errorInfo(), true));
-		} else {
-			log_auditable_action($uid, "set_elec_access", $eid);
+		if(get_user_election_access($uid, $eid) == FALSE) {
+			$stmt = $pdo->prepare("INSERT INTO `access` (`election`, `user`, `level`) VALUES (?, ?, ?)");
+			$stmt->bindParam(1, $eid);
+			$stmt->bindParam(2, $uid);
+			$stmt->bindParam(3, $level);
+			$stmt->execute();
+		} else { 
+			$stmt = $pdo->prepare("UPDATE `access` SET `level`= ? WHERE `user`= ? AND `election`= ?");
+			$stmt->bindParam(1, $level);
+			$stmt->bindParam(2, $uid);
+			$stmt->bindParam(3, $eid);
+			$stmt->execute();
+			if (!$stmt) {
+				error_log(print_r($stmt->errorInfo(), true));
+			} else {
+				log_auditable_action($uid, "set_elec_access", $eid);
+			}
 		}
 	} else {
 		$stmt = $pdo->prepare("DELETE FROM `access` WHERE `user`= ? AND `election`= ?");
