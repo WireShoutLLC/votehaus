@@ -56,13 +56,21 @@ function set_user_election_access($uid, $eid, $level) {
 		$stmt->bindParam(2, $uid);
 		$stmt->bindParam(3, $eid);
 		$stmt->execute();
-		log_auditable_action($uid, "set_elec_access", $eid);
+		if (!$stmt) {
+			error_log(print_r($stmt->errorInfo(), true));
+		} else {
+			log_auditable_action($uid, "set_elec_access", $eid);
+		}
 	} else {
 		$stmt = $pdo->prepare("DELETE FROM `access` WHERE `user`= ? AND `election`= ?");
 		$stmt->bindParam(1, $uid);
 		$stmt->bindParam(2, $eid);
 		$stmt->execute();
-		log_auditable_action($uid, "del_elec_access", $eid);
+		if (!$stmt) {
+			error_log(print_r($stmt->errorInfo(), true));
+		} else {
+			log_auditable_action($uid, "del_elec_access", $eid);
+		}
 	}
 }
 
