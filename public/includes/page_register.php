@@ -27,7 +27,7 @@ global $config;
 				</div>
 				<?php csrf_render_html(); ?>
 				<div class="row">
-					<div class="col-xs-4">
+					<div class="col-xs-12">
 						<button class="btn btn-primary btn-block btn-flat">Register</button>
 					</div>
 				</div>
