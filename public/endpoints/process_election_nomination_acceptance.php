@@ -11,11 +11,17 @@ if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
 			
 			$data['success'] = true;
 			$data['message'] = 'Success!';
+			
+			//Redirect them for now, will ajax later
+			header("Location: /election?id=" . $_POST['election_id']);
 		} else if(isset($_POST['decline'])) {
 			set_user_election_access(session_get_user_id(), $_POST['election_id'], 0);
 			
 			$data['success'] = true;
 			$data['message'] = 'Success!';
+			
+			//Redirect them for now, will ajax later
+			header("Location: /dashboard");
 		} else {
 			$errors['name'] = 'An error occurred.';
 		}
