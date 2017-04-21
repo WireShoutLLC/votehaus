@@ -103,6 +103,19 @@ $election_name = get_election_name($election_id);
 						</form>
 					</div>
 				</div>
+				<!-- Start Election -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Start Election</h3>
+					</div>
+					<div class="box-body">
+						<form name="start_election" id="start_election" action="endpoints/process_election_start.php" method="post">
+							<?php csrf_render_html(); ?>
+							<input type="hidden" name="election_id" value="<?php echo $election_id; ?>" />
+							<button type="submit" name="start" class="btn btn-block btn-success btn-lg">Start Election</button>
+						</form>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
