@@ -119,7 +119,7 @@ function has_valid_reg_key($email, $key) {
 	}
 }
 
-function create_keyed_user_account($email, $key) {
+function create_keyed_user_account($email) {
 	global $pdo;
 
 	$key = randString(32);
