@@ -24,7 +24,12 @@ $election_name = get_election_name($election_id);
 	</section>
 	<section class="content">
 		<div class="row">
-			<h3>We are still working on this page. Please work on your questions and we will email you when this page is ready.</h3>
+			<div class="col-xs-12">
+				<div class="alert alert-info">
+					<h4><i class="icon fa fa-info"></i> Under Construction</h4>
+					We are still working on this page. Please work on your questions and we will email you when this page is ready.
+				</div>
+			</div>
 		</div>
 	</section>
 </div>
