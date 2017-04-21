@@ -245,10 +245,11 @@ function render_question($questiondata, $eid) {
 		<div class="row">
 			<!-- Acceptance Notice -->
 			<h4>Nominee Acceptance Notice</h4>
-			<form>
+			<form action="endpoints/process_election_notice_modify.php" method="post">
 				<textarea id="noticeeditor" name="noticeeditor" rows="10" cols="80">
 					<?php echo $questiondata['data']['acceptance_notice']; ?>
 				</textarea>
+				<button type="submit" class="btn btn-block btn-primary"><i class="fa fa-save"></i> Save</button>
 			</form>
 		</div>
 		<div class="row">
