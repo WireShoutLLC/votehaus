@@ -245,6 +245,11 @@ function render_question($questiondata, $eid) {
 		<div class="row">
 			<!-- Acceptance Notice -->
 			<h4>Nominee Acceptance Notice</h4>
+			<form>
+				<textarea id="noticeeditor" name="noticeeditor" rows="10" cols="80">
+					<?php echo $questiondata['data']['acceptance_notice']; ?>
+				</textarea>
+			</form>
 		</div>
 		<div class="row">
 			<!-- Voter Guide -->
