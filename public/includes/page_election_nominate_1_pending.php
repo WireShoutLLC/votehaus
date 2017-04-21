@@ -33,7 +33,15 @@ $election_name = get_election_name($election_id);
 					<div class="box-body">
 						<h3>Congratulations, you have been nominated!</h3>
 						<p>Please read the following notice from the Election Administrators:</p>
-						
+						<?php
+						$questions = get_questions_for_election($election_id); 
+						foreach($questions as $question) {
+							$questiondata = json_decode($question['data'], true);
+							if($questiondata['type'] == "nominee_1") {
+								echo $questiondata['data']['acceptance_notice'];
+							}
+						}
+						?>
 					</div>
 				</div>
 			</div>
