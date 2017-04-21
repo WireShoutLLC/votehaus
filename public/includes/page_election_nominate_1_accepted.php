@@ -24,7 +24,7 @@ $election_name = get_election_name($election_id);
 	</section>
 	<section class="content">
 		<div class="row">
-			
+			<h3>We are still working on this page. Please work on your questions and we will email you when this page is ready.</h3>
 		</div>
 	</section>
 </div>
