@@ -29,8 +29,8 @@ $election_name = get_election_name($election_id);
 					<div class="box-header with-border">
 						<h3 class="box-title">Voter Guide</h3>
 					</div>
-					<div class="box-body">
-						<form class="form-horizontal">
+					<form>
+						<div class="box-body">
 							<?php 
 							$questions = get_questions_for_election($election_id); 
 							foreach($questions as $electionquestion) {
@@ -46,8 +46,11 @@ $election_name = get_election_name($election_id);
 									}
 								}
 							} ?>
-						</form>
-					</div>
+						</div>
+						<div class="box-footer">
+							<button type="submit" class="btn btn-info pull-right">Save</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
