@@ -43,11 +43,13 @@ $election_name = get_election_name($election_id);
 									$existing_guide = get_user_election_access_data(session_get_user_id(), $election_id);
 									if(isset($existing_guide) && !empty($existing_guide)) {
 										$guide = json_decode($existing_guide, true);
+									}
+									foreach($voter_guide as $question) { 
+									if(isset($existing_guide) && !empty($existing_guide)) {
 										$prefill = $guide['voter_guide'][$qnum];
 									} else {
 										$prefill = "";
-									}
-									foreach($voter_guide as $question) { ?>
+									} ?>
 									<div class="form-group">
 										<label><?php echo $question['question']; ?></label>
 										<textarea class="form-control" name="question-<?php echo $qnum; ?>" rows="3" maxlength="<?php echo $question['limit']; ?>" placeholder="Input your answer here"><?php echo $prefill; ?></textarea>
