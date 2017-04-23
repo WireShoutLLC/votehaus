@@ -134,7 +134,7 @@ $election_name = get_election_name($election_id);
 						<label>Admin Email Address</label>
 						<?php csrf_render_html(); ?>
 						<input type="hidden" name="election_id_newadmin" value="<?php echo $election_id; ?>" />
-						<input type="text" class="form-control" placeholder="richard.nixon@not.crook" name="email" />
+						<input type="email" class="form-control" placeholder="john.doe@example.com" name="email" />
 					</div>
 				</div>
 				<div class="modal-footer">
