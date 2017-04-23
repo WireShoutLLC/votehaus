@@ -47,6 +47,22 @@ function get_user_election_access($uid, $eid) {
 	}
 }
 
+function get_user_election_access_data($uid, $eid) {
+	global $pdo;
+
+	$stmt = $pdo->prepare("SELECT `data` FROM `access` WHERE `user`= ? AND `election`= ?");
+	$stmt->bindParam(1, $uid);
+	$stmt->bindParam(2, $eid);
+	$stmt->execute();
+	$access = $stmt->fetchAll();
+	if($stmt->rowCount() == 1) {
+		$data = $access[0]['data'];
+		return $data; 
+	} else {
+		return false;
+	}
+}
+
 function set_user_election_access($uid, $eid, $level, $data = "") {
 	global $pdo;
 
