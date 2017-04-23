@@ -42,7 +42,8 @@ $election_name = get_election_name($election_id);
 									$voter_guide = $questiondata['data']['voter_guide'];
 									$existing_guide = get_user_election_access_data(session_get_user_id(), $election_id);
 									if(isset($existing_guide) && !empty($existing_guide)) {
-										$prefill = $existing_guide['voter_guide'][$qnum];
+										$guide = json_decode($existing_guide, true);
+										$prefill = $guide['voter_guide'][$qnum];
 									} else {
 										$prefill = "";
 									}
