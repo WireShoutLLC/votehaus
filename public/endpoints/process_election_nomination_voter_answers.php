@@ -31,6 +31,9 @@ if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
 		set_user_election_access(session_get_user_id(), $election_id, 101, $json);
 		$data['success'] = true;
 		$data['message'] = 'Success!';
+		
+		//Redirect them for now, will ajax later
+		header("Location: /election?id=" . $election_id);
 	} else {
 		$errors['name'] = 'Invalid election.';
 	}
