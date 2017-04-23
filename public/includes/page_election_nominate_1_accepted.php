@@ -31,6 +31,8 @@ $election_name = get_election_name($election_id);
 					</div>
 					<form name="nomination_questions" id="nomination_questions" action="endpoints/process_election_nomination_voter_answers.php" method="post">
 						<div class="box-body">
+							<?php csrf_render_html(); ?>
+							<input type="hidden" name="election_id" value="<?php echo $election_id; ?>" />
 							<?php 
 							$questions = get_questions_for_election($election_id); 
 							foreach($questions as $electionquestion) {
