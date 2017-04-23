@@ -6,7 +6,24 @@ $data	= array();
 
 if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
 	if(isset($_POST['election_id']) && !empty($_POST['election_id'] && does_election_exist($_POST['election_id'])) {
-		//TODO
+		$election_id = $_POST['election_id'];
+		$questions = get_questions_for_election($election_id); 
+		foreach($questions as $electionquestion) {
+			$questiondata = json_decode($electionquestion['data'], true);
+			if($questiondata['type'] == "nominee_1") {
+				$qnum = 0;
+				$voter_guide = $questiondata['data']['voter_guide'];
+				foreach($voter_guide as $question) {
+					$questionform = 'question-' . $qnum;
+					if(isset($_POST[$questionform]) && strlen($_POST[$questionform]) <= $question['limit']) {
+						$descript = htmlspecialchars($_POST[$questionform]);
+						
+						//TODO: Add to user access data voter guide array
+					}
+					$qnum++;
+				}
+			}
+		}
 	} else {
 		$errors['name'] = 'Invalid election.';
 	}
