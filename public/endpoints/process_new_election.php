@@ -5,7 +5,7 @@ $errors	= array();
 $data	= array();
 
 if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
-	if(isset($_POST['election']) && !empty($_POST['election'])) {
+	if(isset($_POST['election']) && !empty($_POST['election']) && get_user_sysadmin_level(session_get_user_id()) > 0) {
 		global $pdo;
 		
 		$election = htmlspecialchars($_POST['election']);
