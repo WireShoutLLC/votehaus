@@ -47,21 +47,23 @@ function get_user_election_access($uid, $eid) {
 	}
 }
 
-function set_user_election_access($uid, $eid, $level) {
+function set_user_election_access($uid, $eid, $level, $data = "") {
 	global $pdo;
 
 	if($level != 0) {
 		if(get_user_election_access($uid, $eid) == FALSE) {
-			$stmt = $pdo->prepare("INSERT INTO `access` (`election`, `user`, `level`) VALUES (?, ?, ?)");
+			$stmt = $pdo->prepare("INSERT INTO `access` (`election`, `user`, `level`, `data`) VALUES (?, ?, ?, ?)");
 			$stmt->bindParam(1, $eid);
 			$stmt->bindParam(2, $uid);
 			$stmt->bindParam(3, $level);
+			$stmt->bindParam(4, $data);
 			$stmt->execute();
 		} else { 
-			$stmt = $pdo->prepare("UPDATE `access` SET `level`= ? WHERE `user`= ? AND `election`= ?");
+			$stmt = $pdo->prepare("UPDATE `access` SET `level`= ? WHERE `user`= ? AND `election`= ? AND `data` = ?");
 			$stmt->bindParam(1, $level);
 			$stmt->bindParam(2, $uid);
 			$stmt->bindParam(3, $eid);
+			$stmt->bindParam(4, $data);
 			$stmt->execute();
 			if (!$stmt) {
 				error_log(print_r($stmt->errorInfo(), true));
