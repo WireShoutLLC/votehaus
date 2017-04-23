@@ -129,6 +129,21 @@ function get_user_email($uid) {
 	}
 }
 
+function get_user_sysadmin_level($uid) {
+	global $pdo;
+
+	$stmt = $pdo->prepare("SELECT `system_admin` FROM `users` WHERE `id`= ?");
+	$stmt->bindParam(1, $uid);
+	$stmt->execute();
+	$result = $stmt->fetchAll();
+	if($stmt->rowCount() == 1) {
+		$val = $result[0]['email'];
+		return $val;
+	} else {
+		return false;
+	}
+}
+
 function has_valid_reg_key($email, $key) {
 	global $pdo;
 
