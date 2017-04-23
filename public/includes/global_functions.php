@@ -75,7 +75,7 @@ function set_user_election_access($uid, $eid, $level, $data = "") {
 			$stmt->bindParam(4, $data);
 			$stmt->execute();
 		} else { 
-			$stmt = $pdo->prepare("UPDATE `access` SET `level`= ? AND `data` = ? WHERE `user`= ? AND `election`= ?");
+			$stmt = $pdo->prepare("UPDATE `access` SET `level`= ?, `data` = ? WHERE `user`= ? AND `election`= ?");
 			$stmt->bindParam(1, $level);
 			$stmt->bindParam(2, $uid);
 			$stmt->bindParam(3, $eid);
