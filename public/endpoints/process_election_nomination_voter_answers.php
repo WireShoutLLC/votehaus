@@ -28,7 +28,6 @@ if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
 			}
 		}
 		$json = json_encode($voterguidedata);
-		error_log($json);
 		set_user_election_access(session_get_user_id(), $election_id, 101, $json);
 		$data['success'] = true;
 		$data['message'] = 'Success!';
