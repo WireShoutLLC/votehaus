@@ -37,7 +37,9 @@ $election_id = $_GET['id'];
 	        	<?php 
 	        	}
 	        } ?>
+		<?php if (get_user_sysadmin_level(session_get_user_id()) > 0) { ?>
         	<li><a href="#" data-toggle="modal" data-target="#createElection"><i class="fa fa-pencil-square-o"></i> <span>New Election...</span></a></li>
+		<?php } ?>
       	</ul>
     </section>
 </aside>
