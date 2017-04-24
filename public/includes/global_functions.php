@@ -396,7 +396,7 @@ function session_get_value($name) {
 
 function session_csrf_add() {
 	$value = randString(16);
-	$_SESSION['csrf'][$value] = time() + 300; //5 minute expiry
+	$_SESSION['csrf'][$value] = time() + 86400; //5 minute expiry
 	return $value;
 }
 
