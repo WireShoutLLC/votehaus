@@ -10,7 +10,7 @@ function on_load() {
 		session_logout_user();
 	}
 
-	if($_SESSION['last_csrf_cleanup'] + 3600 < time()) {
+	if($_SESSION['last_csrf_cleanup'] + 86400 < time()) {
 		session_csrf_cleanup();
 	}
 }
