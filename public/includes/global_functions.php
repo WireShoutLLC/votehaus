@@ -195,6 +195,16 @@ function change_election_stage($eid, $stage) {
 	$stmt->execute();
 }
 
+function get_election_stage($eid) {
+	$stmt = $pdo->prepare("SELECT `stage` FROM `elections` WHERE `id`= ?");
+	$stmt->bindParam(1, $eid);
+	$stmt->execute();
+	$row = $stmt->fetch(PDO::FETCH_NUM);
+
+	$stage = $row[0];
+	return $stage;
+}
+
 function get_user_id($email) {
 	global $pdo;
 
