@@ -114,11 +114,11 @@ $election_name = get_election_name($election_id);
 							<input type="hidden" name="election_id" value="<?php echo $election_id; ?>" />
 							<?php $stage = get_election_stage($election_id);
 							if($stage == "ready") { ?>
-							<button type="submit" name="start" class="btn btn-block btn-success btn-lg">Start Election</button>
+							<button type="submit" name="start_election" class="btn btn-block btn-success btn-lg">Start Election</button>
 							<?php } else if($stage == "created") { ?>
 							<button type="submit" name="start" class="btn btn-block btn-success btn-lg">Start Nomination Period</button>
 							<?php } else if($stage == "polling") { ?>
-							<button type="submit" name="start" class="btn btn-block btn-danger btn-lg">End Election</button>
+							<button type="submit" name="end_election" class="btn btn-block btn-danger btn-lg">End Election</button>
 							<?php } ?>
 						</form>
 					</div>
