@@ -17,7 +17,7 @@ global $config;
 			<div class="lockscreen-image">
 				<img src="/dist/img/ballot1-128x128.png" alt="User Image">
 			</div>
-			<form class="lockscreen-credentials" action="endpoints/process_voter_login.php" method="post">
+			<form id="voterloginbox" class="lockscreen-credentials" action="endpoints/process_voter_login.php" method="post">
 				<div class="input-group">
 					<?php csrf_render_html(); ?>
 					<input name="voter_token" type="password" class="form-control" placeholder="password" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;" autocomplete="off">
