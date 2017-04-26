@@ -12,8 +12,8 @@ $election_id = $_GET['id'];
 		<ul class="sidebar-menu">
 			<li class="header">ELECTIONS</li>
 	        <?php foreach ($elections as $row) {
-	        	$election_name = get_election_name($election_id);
-	        	$stage = get_election_stage($election_id);
+	        	$election_name = get_election_name($row["election"]);
+	        	$stage = get_election_stage($row["election"]);
 	        	
 	        	if($stage == "created")
 	        		$infobox = '<span class="pull-right-container"><small class="label pull-right bg-yellow">new</small></span>';
