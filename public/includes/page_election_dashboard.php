@@ -106,7 +106,7 @@ $election_name = get_election_name($election_id);
 				<!-- Start Election -->
 				<div class="box box-primary">
 					<div class="box-header with-border">
-						<h3 class="box-title">Start Election</h3>
+						<h3 class="box-title">Election Actions</h3>
 					</div>
 					<div class="box-body">
 						<form name="start_election" id="start_election" action="endpoints/process_election_start.php" method="post">
