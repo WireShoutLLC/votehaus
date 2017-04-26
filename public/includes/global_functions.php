@@ -147,7 +147,6 @@ function get_user_sysadmin_level($uid) {
 function has_valid_voter_token($token) {
 	global $pdo;
 
-	$regkey = "REGKEY=" . $key;
 	$stmt = $pdo->prepare("SELECT `id` FROM `voters` WHERE `$token`= ? AND `has_voted`= 0");
 	$stmt->bindParam(1, $token);
 	$stmt->execute();
