@@ -196,6 +196,8 @@ function change_election_stage($eid, $stage) {
 }
 
 function get_election_stage($eid) {
+	global $pdo;
+	
 	$stmt = $pdo->prepare("SELECT `stage` FROM `elections` WHERE `id`= ?");
 	$stmt->bindParam(1, $eid);
 	$stmt->execute();
