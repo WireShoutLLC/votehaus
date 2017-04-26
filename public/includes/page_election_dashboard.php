@@ -112,7 +112,14 @@ $election_name = get_election_name($election_id);
 						<form name="start_election" id="start_election" action="endpoints/process_election_start.php" method="post">
 							<?php csrf_render_html(); ?>
 							<input type="hidden" name="election_id" value="<?php echo $election_id; ?>" />
+							<?php $stage = get_election_stage($election_id);
+							if($stage == "ready") { ?>
 							<button type="submit" name="start" class="btn btn-block btn-success btn-lg">Start Election</button>
+							<?php } else if($stage == "created") { ?>
+							<button type="submit" name="start" class="btn btn-block btn-success btn-lg">Start Nomination Period</button>
+							<?php } else if($stage == "polling") { ?>
+							<button type="submit" name="start" class="btn btn-block btn-danger btn-lg">End Election</button>
+							<?php } ?>
 						</form>
 					</div>
 				</div>
