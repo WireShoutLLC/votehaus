@@ -5,7 +5,7 @@ $errors	= array();
 $data	= array();
 
 if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
-	if(isset($_POST['election_id']) && !empty($_POST['election_id'] && does_election_exist($_POST['election_id'])) && isset($_POST['start'])) {
+	if(isset($_POST['election_id']) && !empty($_POST['election_id'] && does_election_exist($_POST['election_id'])) && (isset($_POST['start']) || isset($_POST['start_election']) || isset($_POST['end_election']))) {
 		if(isset($_POST['start'])) {
 			$election_id = $_POST['election_id'];
 			$questions = get_questions_for_election($election_id); 
