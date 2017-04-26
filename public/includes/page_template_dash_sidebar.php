@@ -12,13 +12,8 @@ $election_id = $_GET['id'];
 		<ul class="sidebar-menu">
 			<li class="header">ELECTIONS</li>
 	        <?php foreach ($elections as $row) {
-	        	$stmt = $pdo->prepare("SELECT `name`,`stage` FROM `elections` WHERE `id`= ?");
-	        	$stmt->bindParam(1, $row["election"]);
-	        	$stmt->execute();
-	        	$row2 = $stmt->fetch(PDO::FETCH_NUM);
-	        	
-	        	$election_name = $row2[0];
-	        	$stage = $row2[1];
+	        	$election_name = get_election_name($election_id);
+	        	$stage = get_election_stage($election_id);
 	        	
 	        	if($stage == "created")
 	        		$infobox = '<span class="pull-right-container"><small class="label pull-right bg-yellow">new</small></span>';
