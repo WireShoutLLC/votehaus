@@ -13,8 +13,15 @@ if(session_is_logged_in()) {
 			//Election Administrator
 			require('includes/page_election_dashboard.php');
 		} else if($access == 101) {
-			//Nominee Acceptance
-			require('includes/page_election_nominate_1_accepted.php');
+			$stage = get_election_stage($_GET['id']);
+			if($stage == "ready") {
+				require('includes/page_election_nominate_1_accepted.php');
+			} else if($stage == "polling") {
+				require('includes/page_election_nominate_1_locked.php');
+			} else {
+				http_response_code(404);
+				require('includes/page_template_dash_404.php');
+			}
 		} else if($access == 100) {
 			//Nominee Acceptance
 			require('includes/page_election_nominate_1_pending.php');
