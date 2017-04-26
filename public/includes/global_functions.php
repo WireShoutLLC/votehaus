@@ -144,6 +144,21 @@ function get_user_sysadmin_level($uid) {
 	}
 }
 
+function has_valid_voter_token($token) {
+	global $pdo;
+
+	$regkey = "REGKEY=" . $key;
+	$stmt = $pdo->prepare("SELECT `id` FROM `voters` WHERE `$token`= ? AND `has_voted`= 0");
+	$stmt->bindParam(1, $token);
+	$stmt->execute();
+	$result = $stmt->fetchAll();
+	if($stmt->rowCount() == 1) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
 function has_valid_reg_key($email, $key) {
 	global $pdo;
 
