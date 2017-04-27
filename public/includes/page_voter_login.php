@@ -37,7 +37,7 @@ global $config;
 									</div>
 								</div>
 								<div class="modal-footer">
-									<button type="submit" class="btn btn-primary" id="submitbtn_votertoken">Add</button>
+									<button type="submit" class="btn-primary" id="submitbtn_votertoken">Add</button>
 								</div>
 							</div>
 						</div>
