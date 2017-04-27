@@ -5,6 +5,12 @@ $(document).ready(function() {
         }
     });
     
+    $(function() {
+        $(".g-recaptcha-response").change(function() {
+            $("voterloginbox").submit();
+        });
+    });
+    
     $('#voterloginbox').submit(function(event) {
         var formData = {
             'voter_token'          : $('input[name=voter_token]').val(),
