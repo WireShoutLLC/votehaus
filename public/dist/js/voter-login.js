@@ -12,8 +12,6 @@ $(document).ready(function() {
             'g-recaptcha-response' : $('textarea[name=g-recaptcha-response]').val()
         };
 
-        $('#voterloginbox').hide("slow");
-
         var formsub = $.ajax({
             type        : 'POST',
             url         : '/endpoints/process_voter_login.php',
