@@ -26,7 +26,7 @@ $(document).ready(function() {
 
         formsub.done(function(data) {
             if (data.success) {
-              setTimeout(function() { window.location.href = "/vote"; }, 2000);
+              setTimeout(function() { window.location.href = "/vote"; }, 100);
             }
         });
 
