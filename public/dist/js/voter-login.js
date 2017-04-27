@@ -5,11 +5,9 @@ $(document).ready(function() {
         }
     });
     
-    $(function() {
-        $(".g-recaptcha-response").change(function() {
-            $("voterloginbox").submit();
-        });
-    });
+    var recaptchaSubmit = function() {
+        $("voterloginbox").submit();
+    };
     
     $('#voterloginbox').submit(function(event) {
         var formData = {
