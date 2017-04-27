@@ -384,6 +384,14 @@ function session_is_logged_in() {
 	}
 }
 
+function session_get_type() {
+	if(isset($_SESSION['uid'])) {
+		return 'user';
+	} else {
+		return 'voter';
+	}
+}
+
 function session_login_user($uid) {
 	$_SESSION['uid'] = $uid;
 	$_SESSION['logged_in'] = true;
@@ -400,6 +408,30 @@ function session_get_user_id() {
 }
 
 function session_logout_user() {
+	session_unset();
+	session_destroy();
+	session_start();
+	$_SESSION['logged_in'] = false;
+	$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+	session_csrf_cleanup();
+}
+
+function session_login_voter($token) {
+	$_SESSION['voter'] = $token;
+	$_SESSION['logged_in'] = true;
+	$_SESSION['login_time'] = time();
+	session_csrf_cleanup();
+}
+
+function session_get_voter_token() {
+	if(isset($_SESSION['voter'])) {
+		return $_SESSION['voter'];
+	} else {
+		return false;
+	}
+}
+
+function session_logout_voter() {
 	session_unset();
 	session_destroy();
 	session_start();
