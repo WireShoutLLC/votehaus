@@ -19,7 +19,7 @@ $(document).ready(function() {
             url         : '/endpoints/process_voter_login.php',
             data        : formData,
             dataType    : 'json',
-            encode      : true }
+            encode      : true 
         });
 
         formsub.done(function(data) {
