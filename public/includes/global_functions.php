@@ -221,6 +221,19 @@ function get_election_stage($eid) {
 	return $stage;
 }
 
+function get_voter_election_id() {
+	global $pdo;
+	
+	$voter = session_get_voter_token();
+	$stmt = $pdo->prepare("SELECT `election` FROM `voters` WHERE `voter_token`= ?");
+	$stmt->bindParam(1, $voter);
+	$stmt->execute();
+	$row = $stmt->fetch(PDO::FETCH_NUM);
+
+	$election_id = $row[0];
+	return $election_id;
+}
+
 function get_user_id($email) {
 	global $pdo;
 
