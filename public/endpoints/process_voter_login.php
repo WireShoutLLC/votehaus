@@ -9,7 +9,7 @@ if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
 	$resp = $recaptcha->verify($_POST['g-recaptcha-response']);
 	if ($resp->isSuccess()) {
 		if(isset($_POST['voter_token']) && !empty($_POST['voter_token']) && has_valid_voter_token($_POST['voter_token'])) {
-			//TODO
+			session_login_voter($_POST['voter_token']);
 			
 			$data['success'] = true;
 			$data['message'] = 'Success!';
