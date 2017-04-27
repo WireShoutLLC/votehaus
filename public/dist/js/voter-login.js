@@ -1,4 +1,10 @@
 $(document).ready(function() {
+    $("#voter_token").keyup(function(event){
+        if(event.keyCode == 13){
+            $("#next_btn").click();
+        }
+    });
+    
     $('#voterloginbox').submit(function(event) {
         var formData = {
             'voter_token'          : $('input[name=voter_token]').val(),
