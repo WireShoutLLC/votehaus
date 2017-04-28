@@ -31,6 +31,6 @@ $election_name = get_election_name($election_id);
 
 <?php 
 
-require_once('page_template_dash_foot.php');
+require_once('page_template_voter_foot.php');
 
 ?>
