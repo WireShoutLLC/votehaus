@@ -34,7 +34,7 @@ function get_users_all_elections($uid) {
 function get_election_users_at_access($eid, $level) {
 	global $pdo;
 	
-	$stmt = $pdo->prepare("SELECT `user`,`data` FROM `access` WHERE `election`= ? AND `level`= ? ORDER BY NEWID()");
+	$stmt = $pdo->prepare("SELECT `user`,`data` FROM `access` WHERE `election`= ? AND `level`= ? ORDER BY RAND()");
 	$stmt->bindParam(1, $eid);
 	$stmt->bindParam(2, $level);
 	$stmt->execute();
