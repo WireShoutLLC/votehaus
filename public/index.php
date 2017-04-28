@@ -38,7 +38,9 @@ if(session_is_logged_in()) {
 			require('includes/page_template_dash_404.php');
 		}
 	} else {
-		if($_GET['pg'] == "vote") {
+		if(!isset($_GET['pg']) || empty($_GET['pg'])) {
+			die(header("Location: /vote"));
+		} else if($_GET['pg'] == "vote") {
 			require('includes/page_voter_dashboard.php');
 		} else if($_GET['pg'] == "logout") {
 			session_logout_user();
