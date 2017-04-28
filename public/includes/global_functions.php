@@ -36,7 +36,7 @@ function get_election_users_at_access($eid, $level) {
 	
 	$stmt = $pdo->prepare("SELECT `user`,`data` FROM `access` WHERE `election`= ? AND `level`= ?");
 	$stmt->bindParam(1, $eid);
-	$stmt->bindParam(1, $level);
+	$stmt->bindParam(2, $level);
 	$stmt->execute();
 	$users = $stmt->fetchAll();
 	return $users;
