@@ -344,9 +344,24 @@ function record_ballot($eid, $ballot) {
 	
 	$token = session_get_voter_token();
 	
-	$stmt = $pdo->prepare("UPDATE `voters` SET `has_voted`= 1 WHERE `token`= ?");
+	$stmt = $pdo->prepare("UPDATE `voters` SET `has_voted`= 1 WHERE `voter_token`= ?");
 	$stmt->bindParam(1, $token);
 	$stmt->execute();
+}
+
+function has_voter_voted() {
+	global $pdo;
+
+	$token = session_get_voter_token();
+	
+	$stmt = $pdo->prepare("SELECT `id` FROM `voters` WHERE `voter_token`= ? AND `has_voted` = 0");
+	$stmt->bindParam(1, $eid);
+	$stmt->execute();
+	if($stmt->rowCount() == 1) {
+		return false;
+	} else {
+		return true;
+	}
 }
 
 function render_question($questiondata, $eid) {
