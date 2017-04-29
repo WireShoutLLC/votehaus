@@ -4,7 +4,7 @@ require_once('../includes/config.php');
 $errors	= array();
 $data	= array();
 
-if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
+if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf']) && session_get_type() == "voter") {
 	if(isset($_POST['ballot']) && !has_voter_voted()) {
 		$election_id = get_voter_election_id();
 		$json = json_encode($_POST['ballot']);

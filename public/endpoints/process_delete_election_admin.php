@@ -4,7 +4,7 @@ require_once('../includes/config.php');
 $errors	= array();
 $data	= array();
 
-if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
+if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf']) && session_get_type() == "user") {
 	if(isset($_POST['election_id_deleteadmin']) && !empty($_POST['election_id_deleteadmin']) && isset($_POST['admin_id_deleteadmin']) && !empty($_POST['admin_id_deleteadmin'])) {
 		global $pdo;
 		

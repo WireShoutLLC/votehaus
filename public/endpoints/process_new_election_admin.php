@@ -4,7 +4,7 @@ require_once('../includes/config.php');
 $errors	= array();
 $data	= array();
 
-if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
+if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf']) && session_get_type() == "user") {
 	if(isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['election']) && !empty($_POST['election']) && does_election_exist($_POST['election'])) {
 		$email = $_POST['email'];
 		$uid_of_email = get_user_id($email);

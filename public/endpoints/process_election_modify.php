@@ -5,7 +5,7 @@ require_once('../includes/credentials.php');
 $errors	= array();
 $data	= array();
 
-if(isset($_POST['csrf']) && session_csrf_check($_POST['csrf'])) {
+if(isset($_POST['csrf']) && session_csrf_check($_POST['csrf']) && session_get_type() == "user") {
 	if((isset($_POST['name']) && !empty($_POST['name'])) && (isset($_POST['pk']) && !empty($_POST['pk']) && is_numeric($_POST['pk'])) && (isset($_POST['value']) && !empty($_POST['value']))) {
 		if($_POST['name'] == "election_name") {
 			
