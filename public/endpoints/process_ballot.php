@@ -8,8 +8,7 @@ if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
 	if(isset($_POST['ballot']) && !has_voter_voted()) {
 		$election_id = get_voter_election_id();
 		$json = json_encode($_POST['ballot']);
-		$ballot = array($json);
-		record_ballot($election_id, $ballot);
+		record_ballot($election_id, $json);
 		
 		$data['success'] = true;
 		$data['message'] = 'Success!';
