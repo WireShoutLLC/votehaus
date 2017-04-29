@@ -4,7 +4,7 @@ $(document).ready(function() {
         var listElements = sortableList.children();
         var listValues = [];
         listElements.forEach(function(element){
-            listValues.push(element.innerHTML);
+            listValues.push(element.id);
         });
         
         var formData = {
