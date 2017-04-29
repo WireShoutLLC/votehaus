@@ -1,9 +1,9 @@
 $(document).ready(function() {
     $('#ballot_response').submit(function(event) {
-        var $sortableList = $("#candidates");
-        var listElements = $sortableList.children();
+        var sortableList = $("#candidates");
+        var listElements = sortableList.children();
         var listValues = [];
-        listElement.forEach(function(element){
+        listElements.forEach(function(element){
             listValues.push(element.innerHTML);
         });
         
