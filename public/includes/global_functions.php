@@ -355,12 +355,12 @@ function has_voter_voted() {
 	$token = session_get_voter_token();
 	
 	$stmt = $pdo->prepare("SELECT `id` FROM `voters` WHERE `voter_token`= ? AND `has_voted` = 0");
-	$stmt->bindParam(1, $eid);
+	$stmt->bindParam(1, $token);
 	$stmt->execute();
 	if($stmt->rowCount() == 1) {
-		return true;
-	} else {
 		return false;
+	} else {
+		return true;
 	}
 }
 
