@@ -41,7 +41,7 @@ $election_nominees = get_election_users_at_access($election_id, 101);
 					</div>
 					<div class="box-body">
 						<ul id="ballot" class="list-group">
-							
+							<li class="list-group-item filter">--IGNORE--<li>
 						</ul>
 
 						<script>
