@@ -42,6 +42,8 @@ if(session_is_logged_in()) {
 			die(header("Location: /vote"));
 		} else if($_GET['pg'] == "vote") {
 			require('includes/page_voter_dashboard.php');
+		} else if($_GET['pg'] == "ballot") {
+			require('includes/page_voter_ballot.php');
 		} else if($_GET['pg'] == "logout") {
 			session_logout_user();
 			header("Location: /vote");
