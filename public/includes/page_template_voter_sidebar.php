@@ -14,9 +14,10 @@ $election_nominees = get_election_users_at_access($election_id, 101);
 			<li class="header">Candidates</li>
 			<?php foreach($election_nominees as $nominee) { 
 			$voter_guide = json_decode($nominee['data'], true)['voter_guide']; ?>
-			<li><a href="#<?php echo $nominee['user']; ?>"><span><?php echo $voter_guide[0]; ?></span></a></li>
+			<li><a href="/vote#<?php echo $nominee['user']; ?>"><span><?php echo $voter_guide[0]; ?></span></a></li>
 			<?php } ?>
 			<li class="header">Ballot</li>
+			<a href="/ballot"><span>Ballot</span></a>
 		</ul>
     	</section>
 </aside>
