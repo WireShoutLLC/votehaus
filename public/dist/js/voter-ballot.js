@@ -9,8 +9,7 @@ $(document).ready(function() {
         
         var formData = {
             'ballot'               : listValues,
-            '_csrf'                : $('input[name=_csrf]').val(),
-            'g-recaptcha-response' : $('textarea[name=g-recaptcha-response]').val()
+            '_csrf'                : $('input[name=_csrf]').val()
         };
 
         var formsub = $.ajax({
