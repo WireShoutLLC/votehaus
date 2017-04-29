@@ -7,7 +7,7 @@ $data	= array();
 if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
 	if(isset($_POST['ballot'])) {
 		$election_id = get_voter_election_id();
-		echo $_POST['ballot'];
+		echo print_r($_POST['ballot'], true);
 		
 		
 		$data['success'] = true;
