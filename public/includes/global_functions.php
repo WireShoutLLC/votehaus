@@ -323,6 +323,32 @@ function log_auditable_action($user, $action, $details = NULL) {
 	$stmt->execute();
 }
 
+function record_ballot($eid, $ballot) {
+	global $pdo;
+
+	$ballot_id = randString(16);
+	
+	$stmt = $pdo->prepare("INSERT INTO `ballots` (`id`) VALUES (?)");
+	$stmt->bindParam(1, $ballot_id);
+	$stmt->execute();
+	
+	$qnum = 0;
+	foreach($ballot as $question) {
+		$stmt = $pdo->prepare("INSERT INTO `votes` (`ballot`, `question`, `data`) VALUES (?, ?, ?)");
+		$stmt->bindParam(1, $ballot_id);
+		$stmt->bindParam(2, $qnum);
+		$stmt->bindParam(3, $question);
+		$stmt->execute();
+		$qnum++;
+	}
+	
+	$token = session_get_voter_token();
+	
+	$stmt = $pdo->prepare("UPDATE `voters` SET `has_voted`= 1 WHERE `token`= ?");
+	$stmt->bindParam(1, $token);
+	$stmt->execute();
+}
+
 function render_question($questiondata, $eid) {
 	global $pdo;
 	
