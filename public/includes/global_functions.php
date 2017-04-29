@@ -332,10 +332,12 @@ function record_ballot($eid, $ballot) {
 	$stmt->bindParam(1, $ballot_id);
 	$stmt->execute();
 	
+	$qid = 0;
+	
 	$stmt = $pdo->prepare("INSERT INTO `votes` (`ballot`, `election`, `question`, `data`) VALUES (?, ?, ?, ?)");
 	$stmt->bindParam(1, $ballot_id);
 	$stmt->bindParam(2, $eid);
-	$stmt->bindParam(3, 0);
+	$stmt->bindParam(3, $qid);
 	$stmt->bindParam(4, $ballot);
 	$stmt->execute();
 	
