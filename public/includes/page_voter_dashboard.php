@@ -20,7 +20,7 @@ $election_nominees = get_election_users_at_access($election_id, 101);
 		<ol class="breadcrumb">
 			<li><i class="fa fa-th-list"></i> Elections</li>
 			<li><?php echo $election_name; ?></li>
-			<li class="active">Vote</li>
+			<li class="active">Voter Guide</li>
 		</ol>
 	</section>
 	<section class="content">
