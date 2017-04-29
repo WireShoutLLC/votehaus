@@ -41,9 +41,17 @@ if(session_is_logged_in()) {
 		if(!isset($_GET['pg']) || empty($_GET['pg'])) {
 			die(header("Location: /vote"));
 		} else if($_GET['pg'] == "vote") {
-			require('includes/page_voter_dashboard.php');
+			if(!has_voter_voted()) {
+				require('includes/page_voter_dashboard.php');
+			} else {
+				require('includes/page_voter_success.php');
+			}
 		} else if($_GET['pg'] == "ballot") {
-			require('includes/page_voter_ballot.php');
+			if(!has_voter_voted()) {
+				require('includes/page_voter_ballot.php');
+			} else { 
+				require('includes/page_voter_success.php');
+			}
 		} else if($_GET['pg'] == "logout") {
 			session_logout_user();
 			header("Location: /vote");
