@@ -37,7 +37,7 @@ $election_nominees = get_election_users_at_access($election_id, 101);
 						</div>
 						<form name="ballot_response" id="ballot_response" action="endpoints/process_ballot.php" method="post">
 							<ul id="candidates" class="list-group">
-								<li class="list-group-item"><b>--ORDER ABOVE HERE--</b></li>
+								<li class="list-group-item" id="voteline" name="voteline"><b>--ORDER ABOVE HERE--</b></li>
 								<?php foreach($election_nominees as $nominee) { 
 								$voter_guide = json_decode($nominee['data'], true)['voter_guide']; ?>
 								<li class="list-group-item" id="<?php echo $nominee['user']; ?>" name="<?php echo $nominee['user']; ?>"><?php echo $voter_guide[0]; ?></li>
