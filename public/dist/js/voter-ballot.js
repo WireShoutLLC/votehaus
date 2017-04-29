@@ -3,9 +3,9 @@ $(document).ready(function() {
         var sortableList = $("#candidates");
         var listElements = sortableList.children();
         var listValues = [];
-        listElements.forEach(function(element){
-            listValues.push(element.id);
-        });
+        for (var i = 0; i < listElements.length; i++) {
+            listValues.push(listElements[i].id);
+        }
         
         var formData = {
             'ballot'               : listValues,
