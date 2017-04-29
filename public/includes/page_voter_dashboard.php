@@ -38,7 +38,7 @@ $election_nominees = get_election_users_at_access($election_id, 101);
 								$qnum = 0;
 								$voter_guide = $questiondata['data']['voter_guide'];
 								foreach($voter_guide as $question) { ?>
-								<h3><?php echo $question['question']; ?></h3>
+								<h4><?php echo $question['question']; ?></h4>
 								<p><?php echo $nom_voter_guide[$qnum]; ?></p>
 								<hr />
 								<?php $qnum++;
