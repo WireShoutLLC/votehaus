@@ -56,6 +56,8 @@ $election_nominees = get_election_users_at_access($election_id, 101);
 	</section>
 </div>
 
+<script src="dist/js/voter-ballot.js"></script>
+
 <?php 
 
 require_once('page_template_voter_foot.php');
