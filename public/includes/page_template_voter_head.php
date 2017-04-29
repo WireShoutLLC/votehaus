@@ -36,7 +36,7 @@
 		<!-- Sortable -->
 		<script src="//cdnjs.cloudflare.com/ajax/libs/Sortable/1.5.0/Sortable.min.js"></script>
 	</head>
-	<body class="hold-transition skin-blue sidebar-mini">
+	<body class="hold-transition fixed skin-blue sidebar-mini">
 		<div class="wrapper">
 			<header class="main-header">
 		  		<a href="/vote" class="logo">
