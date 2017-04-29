@@ -45,7 +45,7 @@ $election_nominees = get_election_users_at_access($election_id, 101);
 						</ul>
 
 						<script>
-						Sortable.create(ballot, { /* options */ });
+						Sortable.create(ballot, { group: "ballotgroup" });
 						</script>
 					</div>
 				</div>
@@ -63,7 +63,7 @@ $election_nominees = get_election_users_at_access($election_id, 101);
 						</ul>
 
 						<script>
-						Sortable.create(candidates, { /* options */ });
+						Sortable.create(candidates, { group: "ballotgroup" });
 						</script>
 					</div>
 				</div>
