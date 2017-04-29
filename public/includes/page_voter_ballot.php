@@ -35,9 +35,25 @@ $election_nominees = get_election_users_at_access($election_id, 101);
 		<div class="row">
 			<div class="col-lg-6 col-xs-12">
 				<!-- Ballot -->
+				<div class="box">
+					<div class="box-header with-border">
+						<h3 class="box-title"><i class="fa fa-tag"></i> Ballot</h3>
+					</div>
+					<div class="box-body">
+						<p>Test</p>
+					</div>
+				</div>
 			</div>
 			<div class="col-lg-6 col-xs-12">
 				<!-- Options -->
+				<div class="box">
+					<div class="box-header with-border">
+						<h3 class="box-title"><i class="fa fa-tag"></i> Candidate Options</h3>
+					</div>
+					<div class="box-body">
+						<p>Test</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
