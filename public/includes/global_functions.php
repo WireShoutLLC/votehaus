@@ -358,9 +358,9 @@ function has_voter_voted() {
 	$stmt->bindParam(1, $eid);
 	$stmt->execute();
 	if($stmt->rowCount() == 1) {
-		return false;
-	} else {
 		return true;
+	} else {
+		return false;
 	}
 }
 
