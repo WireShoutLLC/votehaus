@@ -51,7 +51,14 @@ $election_nominees = get_election_users_at_access($election_id, 101);
 						<h3 class="box-title"><i class="fa fa-tag"></i> Candidate Options</h3>
 					</div>
 					<div class="box-body">
-						<p>Test</p>
+						<ul id="simpleList" class="list-group">
+							<li class="list-group-item">This is <a href="http://rubaxa.github.io/Sortable/">Sortable</a></li>
+							<li class="list-group-item">It works with Bootstrap...</li>
+						</ul>
+
+						<script>
+						Sortable.create(simpleList, { /* options */ });
+						</script>
 					</div>
 				</div>
 			</div>
