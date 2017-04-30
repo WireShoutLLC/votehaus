@@ -2,8 +2,9 @@ $(document).ready(function() {
     $("#voter_token").keyup(function(event){
         if(event.keyCode == 13){
             $("#next_btn").click();
+            event.preventDefault();
+            return false;
         }
-        event.preventDefault();
     });
     
     $('#voterloginbox').submit(function(event) {
