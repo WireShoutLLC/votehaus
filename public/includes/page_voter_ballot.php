@@ -38,10 +38,10 @@ $election_nominees = get_election_users_at_access($election_id, 101);
 						<form name="ballot_response" id="ballot_response" action="endpoints/process_ballot.php" method="post">
 							<?php csrf_render_html(); ?>
 							<ul id="candidates" class="list-group">
-								<li class="list-group-item" id="voteline" name="voteline"><b>--ORDER ABOVE HERE--</b></li>
+								<li class="list-group-item" style="cursor: move;" id="voteline" name="voteline"><b>--ORDER ABOVE HERE--</b></li>
 								<?php foreach($election_nominees as $nominee) { 
 								$voter_guide = json_decode($nominee['data'], true)['voter_guide']; ?>
-								<li class="list-group-item" id="<?php echo $nominee['user']; ?>" name="<?php echo $nominee['user']; ?>"><?php echo $voter_guide[0]; ?></li>
+								<li class="list-group-item" style="cursor: move;" id="<?php echo $nominee['user']; ?>" name="<?php echo $nominee['user']; ?>"><?php echo $voter_guide[0]; ?></li>
 								<?php } ?>
 							</ul>
 							<button type="submit" class="btn btn-info pull-right">Submit Ballot</button>
