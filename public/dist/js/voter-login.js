@@ -3,11 +3,8 @@ $(document).ready(function() {
         if(event.keyCode == 13){
             $("#next_btn").click();
         }
+        event.preventDefault();
     });
-    
-    var recaptchaSubmit = function() {
-        $("voterloginbox").submit();
-    };
     
     $('#voterloginbox').submit(function(event) {
         var formData = {
