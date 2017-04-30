@@ -33,7 +33,7 @@ global $config;
 								</div>
 								<div class="modal-body">
 									<div class="form-group has-feedback">
-										<div class="g-recaptcha" data-callback="recaptchaSubmit" data-sitekey="<?php echo $config['captcha']['pub']; ?>"></div>
+										<div class="g-recaptcha" data-sitekey="<?php echo $config['captcha']['pub']; ?>"></div>
 									</div>
 								</div>
 								<div class="modal-footer">
