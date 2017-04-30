@@ -10,9 +10,7 @@ function on_load() {
 		session_logout_user();
 	}
 
-	if($_SESSION['last_csrf_cleanup'] + 86400 < time()) {
-		session_csrf_cleanup();
-	}
+	session_csrf_cleanup();
 }
 
 //votehaus Functions
@@ -518,7 +516,7 @@ function session_get_value($name) {
 
 function session_csrf_add() {
 	$value = randString(16);
-	$_SESSION['csrf'][$value] = time() + 86400; //5 minute expiry
+	$_SESSION['csrf'][$value] = time() + 86400; //1 day expiry
 	return $value;
 }
 
@@ -532,7 +530,7 @@ function session_csrf_check($value) {
 }
 
 function session_csrf_cleanup() {
-	if(sizeof($_SESSION['csrf']) >= 1) {
+	if(isset($_SESSION['csrf']) && sizeof($_SESSION['csrf']) >= 1) {
 		foreach($_SESSION['csrf'] as $str => $time) {
 			if($time < time()) {
 				unset($_SESSION['csrf'][$str]);
