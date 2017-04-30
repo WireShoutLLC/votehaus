@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $("#voter_token").keyup(function(event){
+    $("#voter_token").keydown(function(event){
         if(event.keyCode == 13){
             $("#next_btn").click();
             event.preventDefault();
