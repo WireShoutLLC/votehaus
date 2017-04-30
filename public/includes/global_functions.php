@@ -10,7 +10,9 @@ function on_load() {
 		session_logout_user();
 	}
 
-	session_csrf_cleanup();
+	if($_SESSION['last_csrf_cleanup'] + 86400 < time()) {
+ 		session_csrf_cleanup();
+ 	}
 }
 
 //votehaus Functions
@@ -537,7 +539,7 @@ function session_csrf_cleanup() {
 			}
 		}
 	}
-	$_SESSION['last_csrf_cleaup'] = time();
+	$_SESSION['last_csrf_cleanup'] = time();
 }
 
 function csrf_render_html($fieldname = "_csrf") {
