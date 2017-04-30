@@ -15,15 +15,12 @@ if(isset($_POST['_csrf']) && session_csrf_check($_POST['_csrf'])) {
 			$data['message'] = 'Success!';
 		} else {
 			$errors['name'] = 'Voter token is invalid.';
-			header("Location: /vote");
 		}
 	} else {
 		$errors['captcha'] = 'Captcha is invalid.';
-		header("Location: /vote");
 	}
 } else {
 	$errors['req'] = 'Request is invalid.';
-	header("Location: /vote");
 }
 
 if(!empty($errors)) {
