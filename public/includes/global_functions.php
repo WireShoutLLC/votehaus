@@ -430,6 +430,18 @@ function render_question($questiondata, $eid) {
 	}
 }
 
+function tabulate_alernative_vote($eid) {
+	global $pdo;
+	
+	$stmt = $pdo->prepare("SELECT `data` FROM `votes` WHERE `election`= ? AND `question` = 0");
+	$stmt->bindParam(1, $eid);
+	$stmt->execute();
+	$ballots = $stmt->fetchAll();
+	foreach($ballots as $num => $ballot) {
+		//do stuff
+	}
+}
+
 //Session Functions
 function randString($length, $charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789') {
 	$str = '';
