@@ -49,7 +49,7 @@ CREATE TABLE `ballots` (
 -- Table structure for table `elections`
 --
 
-CREATE TABLE `elections` (
+CREATE TABLE `elections` IF NOT EXISTS (
   `id` int(11) UNSIGNED NOT NULL COMMENT 'Election ID',
   `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Untitled Election' COMMENT 'Title of the election',
   `method` varchar(12) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'simple',
@@ -65,7 +65,7 @@ CREATE TABLE `elections` (
 -- Table structure for table `questions`
 --
 
-CREATE TABLE `questions` (
+CREATE TABLE `questions` IF NOT EXISTS (
   `id` int(11) UNSIGNED NOT NULL,
   `election` int(11) UNSIGNED NOT NULL,
   `order` int(11) NOT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE `questions` (
 -- Table structure for table `stages`
 --
 
-CREATE TABLE `stages` (
+CREATE TABLE `stages` IF NOT EXISTS (
   `id` int(11) UNSIGNED NOT NULL,
   `election` int(11) UNSIGNED NOT NULL,
   `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
@@ -93,7 +93,7 @@ CREATE TABLE `stages` (
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `users` IF NOT EXISTS (
   `id` int(11) UNSIGNED NOT NULL COMMENT 'User ID',
   `email` varchar(320) CHARACTER SET latin1 NOT NULL COMMENT 'User''s email address',
   `password` text CHARACTER SET latin1 NOT NULL COMMENT 'User''s password',
@@ -108,7 +108,7 @@ CREATE TABLE `users` (
 -- Table structure for table `voters`
 --
 
-CREATE TABLE `voters` (
+CREATE TABLE `voters` IF NOT EXISTS (
   `id` int(11) UNSIGNED NOT NULL,
   `election` int(11) UNSIGNED NOT NULL,
   `email` varchar(320) CHARACTER SET latin1 NOT NULL,
@@ -122,7 +122,7 @@ CREATE TABLE `voters` (
 -- Table structure for table `votes`
 --
 
-CREATE TABLE `votes` (
+CREATE TABLE `votes` IF NOT EXISTS (
   `ballot` char(16) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `election` int(11) UNSIGNED NOT NULL,
   `question` int(11) UNSIGNED NOT NULL,
