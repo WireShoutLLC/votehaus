@@ -49,14 +49,14 @@ CREATE TABLE `ballots` (
 -- Table structure for table `elections`
 --
 
-CREATE TABLE `elections` IF NOT EXISTS (
+CREATE TABLE `elections` (
   `id` int(11) UNSIGNED NOT NULL COMMENT 'Election ID',
   `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Untitled Election' COMMENT 'Title of the election',
   `method` varchar(12) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'simple',
   `stage` varchar(12) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'created',
   `createtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Time election was created',
-  `end_prep` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `end_election` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `end_prep` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `end_election` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -65,7 +65,7 @@ CREATE TABLE `elections` IF NOT EXISTS (
 -- Table structure for table `questions`
 --
 
-CREATE TABLE `questions` IF NOT EXISTS (
+CREATE TABLE `questions` (
   `id` int(11) UNSIGNED NOT NULL,
   `election` int(11) UNSIGNED NOT NULL,
   `order` int(11) NOT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE `questions` IF NOT EXISTS (
 -- Table structure for table `stages`
 --
 
-CREATE TABLE `stages` IF NOT EXISTS (
+CREATE TABLE `stages` (
   `id` int(11) UNSIGNED NOT NULL,
   `election` int(11) UNSIGNED NOT NULL,
   `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
@@ -93,12 +93,12 @@ CREATE TABLE `stages` IF NOT EXISTS (
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` IF NOT EXISTS (
+CREATE TABLE `users` (
   `id` int(11) UNSIGNED NOT NULL COMMENT 'User ID',
   `email` varchar(320) CHARACTER SET latin1 NOT NULL COMMENT 'User''s email address',
   `password` text CHARACTER SET latin1 NOT NULL COMMENT 'User''s password',
-  `createdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'User''s creation time',
-  `updatetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'User''s last account update time',
+  `createdate` timestamp NOT NULL COMMENT 'User''s creation time',
+  `updatetime` timestamp NOT NULL COMMENT 'User''s last account update time',
   `system_admin` tinyint(3) UNSIGNED NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -108,7 +108,7 @@ CREATE TABLE `users` IF NOT EXISTS (
 -- Table structure for table `voters`
 --
 
-CREATE TABLE `voters` IF NOT EXISTS (
+CREATE TABLE `voters` (
   `id` int(11) UNSIGNED NOT NULL,
   `election` int(11) UNSIGNED NOT NULL,
   `email` varchar(320) CHARACTER SET latin1 NOT NULL,
@@ -122,7 +122,7 @@ CREATE TABLE `voters` IF NOT EXISTS (
 -- Table structure for table `votes`
 --
 
-CREATE TABLE `votes` IF NOT EXISTS (
+CREATE TABLE `votes` (
   `ballot` char(16) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `election` int(11) UNSIGNED NOT NULL,
   `question` int(11) UNSIGNED NOT NULL,
