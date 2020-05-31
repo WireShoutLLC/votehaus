@@ -43,7 +43,7 @@ $election_name = get_election_name($election_id);
 							<div class="tab-content">
 								<?php foreach($questions as $question) { 
 								$questiondata = json_decode($question['data'], true); ?>
-								<div class="tab-pane" id="tab_<?php echo $question['order']; ?>">
+								<div class="tab_pane" id="tab_<?php echo $question['order']; ?>">
 									<?php render_question($questiondata, $election_id); ?>
 								</div>
 								<?php } ?>
