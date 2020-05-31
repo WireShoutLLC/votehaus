@@ -140,7 +140,7 @@ $election_name = get_election_name($election_id);
 					<div class="form-group">
 						<label>Admin Email Address</label>
 						<?php csrf_render_html(); ?>
-						<input type="hidden" name="election_id_newadmin" value="<?php echo $election_id; ?>" />
+						<input type="hidden" name="election" value="<?php echo $election_id; ?>" />
 						<input type="email" class="form-control" placeholder="john.doe@example.com" name="email" />
 					</div>
 				</div>
