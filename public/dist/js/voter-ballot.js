@@ -1,5 +1,7 @@
 $(document).ready(function() {
     $('#ballot_response').submit(function(event) {
+        confirm("Are you sure you want to submit your ballot?");
+        
         var sortableList = $("#candidates");
         var listElements = sortableList.children();
         var listValues = [];
