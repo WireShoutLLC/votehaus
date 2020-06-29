@@ -34,7 +34,7 @@
 		<!-- JSON Editor -->
 		<script src="//cdnjs.cloudflare.com/ajax/libs/json-editor/0.7.28/jsoneditor.min.js"></script>
 		<!-- Sortable -->
-		<script src="//cdnjs.cloudflare.com/ajax/libs/Sortable/1.5.0/Sortable.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/Sortable/1.10.2/Sortable.min.js"></script>
 	</head>
 	<body class="hold-transition fixed skin-blue sidebar-mini">
 		<div class="wrapper">
