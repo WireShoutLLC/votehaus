@@ -1,6 +1,9 @@
 # votehaus
 
 [![Join the chat at https://gitter.im/votehaus/Lobby](https://badges.gitter.im/votehaus/Lobby.svg)](https://gitter.im/votehaus/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+[![CodeFactor](https://www.codefactor.io/repository/github/wireshoutllc/votehaus/badge)](https://www.codefactor.io/repository/github/wireshoutllc/votehaus)
+
 An open-source voting system written in PHP
 
 # Installation
