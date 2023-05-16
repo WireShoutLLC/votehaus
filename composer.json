@@ -3,7 +3,7 @@
 	"homepage": "https://vote.haus",
 	"license": "AGPL v3.0",
 	"config": {
-		"vendor-dir": "public/includes"
+		"vendor-dir": "vendor"
 	},
 	"require": {
 		"php": ">=5.6.29",

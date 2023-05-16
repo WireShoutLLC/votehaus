@@ -1,0 +1,38 @@
+{
+	"name": "PHP",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			"VARIANT": "8.1-bullseye",
+			"NODE_VERSION": "lts/*"
+		}
+	},
+	"portsAttributes": {
+		"80": {
+			"label": "Apache",
+			"onAutoForward": "notify"
+		},
+		"5432": {
+			"label": "Postgres",
+			"onAutoForward": "notify"
+		},
+		"9000": {
+			"label": "XDebug",
+			"onAutoForward": "notify"
+		}
+	},
+	"remoteUser": "vscode",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"felixfbecker.php-debug",
+				"bmewburn.vscode-intelephense-client",
+				"mrmlnc.vscode-apache",
+				"ms-azuretools.vscode-docker"
+			],
+			"settings": {
+				"php.validate.executablePath": "/usr/local/bin/php"
+			}
+		}
+	}
+}
