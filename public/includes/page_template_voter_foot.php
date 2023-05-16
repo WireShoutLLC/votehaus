@@ -7,7 +7,7 @@
 		</div>
 		
 		<!-- Bootstrap 3.3.6 -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!-- AdminLTE App -->
 		<script src="dist/js/app.min.js"></script>
 	</body>
