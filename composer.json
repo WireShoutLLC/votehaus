@@ -6,8 +6,9 @@
 		"vendor-dir": "vendor"
 	},
 	"require": {
-		"php": ">=5.6.29",
-		"swiftmailer/swiftmailer": "~5.4.5",
-		"google/recaptcha": "~1.1"
+		"php": ">=8.1",
+		"swiftmailer/swiftmailer": "~5.4.12",
+		"google/recaptcha": "~1.3",
+		"robmorgan/phinx": "^0.13.4"
 	}
 }
