@@ -9,7 +9,7 @@
 		<!-- Bootstrap 3.3.6 -->
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!-- AdminLTE App -->
-		<script src="dist/js/app.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.8/js/app.min.js"></script>
 		<!-- X-Editable -->
 		<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 		<!-- CK Editor -->
